@@ -1,0 +1,49 @@
+`timescale 1ns/1ps  // Define a escala de tempo para a simulação
+
+module tb_PC;
+
+    reg clk;                // Clock
+    reg reset;              // Reset
+    reg [31:0] next_pc;     // Próximo valor do PC
+    wire [31:0] pc;         // Saída do PC
+
+    // Instancia o módulo PC
+    PC uut (
+        .clk(clk),
+        .reset(reset),
+        .next_pc(next_pc),
+        .pc(pc)
+    );
+
+    // Gera um clock com período de 10ns (50MHz)
+    always #5 clk = ~clk;
+
+    initial begin
+        // Inicializa os sinais
+        clk = 0;
+        reset = 1; // Ativa o reset
+        next_pc = 32'h00000004; // Próxima instrução em 0x00000004
+
+        #10; // Espera 10ns para estabilizar
+        reset = 0; // Desativa o reset
+
+        #10;
+        next_pc = 32'h00000008; // Altera o próximo PC para 0x00000008
+
+        #10;
+        next_pc = 32'h0000000C; // Altera o próximo PC para 0x0000000C
+
+        #10;
+        next_pc = 32'h00000010; // Altera o próximo PC para 0x00000010
+
+        #20;
+        $stop; // Finaliza a simulação
+    end
+
+    // Monitor para exibir os valores na simulação
+    initial begin
+        $monitor("Tempo=%0t | clk=%b | reset=%b | next_pc=%h | pc=%h", 
+                 $time, clk, reset, next_pc, pc);
+    end
+
+endmodule

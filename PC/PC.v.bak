@@ -1,0 +1,20 @@
+// Módulo PC (Contador de Programa)
+// Responsável por armazenar o endereço da próxima instrução a ser executada.
+// Atualiza seu valor a cada ciclo de clock ou quando recebe um sinal de reset.
+
+module PC (
+    input clk,               // Sinal de clock (controla o avanço do PC a cada ciclo)
+    input reset,             // Sinal de reset (reinicia o PC para 0)
+    input [31:0] next_pc,    // Próximo valor do PC (calculado pelo fluxo de instrução)
+    output reg [31:0] pc     // Saída do PC (endereço atual da instrução)
+);
+
+    // Bloco always: Executado em cada borda de subida do clock ou quando o reset é acionado
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            pc <= 32'b0;  // Se reset for ativado, o PC é reiniciado para 0x00000000
+        else
+            pc <= next_pc; // Caso contrário, o PC recebe o valor da próxima instrução
+    end
+
+endmodule

@@ -1,0 +1,9 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/thiag/Documents/Projeto\ 2\ -\ Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/PC {C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/PC/PC.v}
+
