@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Mar  5 17:28:28 2025
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : dmem
+Top-level Entity Name : dmem
+Family : MAX 10
+Device : 10M08DAF484C8G
+Timing Models : Final
+Total logic elements : 2,449 / 8,064 ( 30 % )
+    Total combinational functions : 1,425 / 8,064 ( 18 % )
+    Dedicated logic registers : 2,048 / 8,064 ( 25 % )
+Total registers : 2048
+Total pins : 99 / 250 ( 40 % )
+Total virtual pins : 0
+Total memory bits : 0 / 387,072 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )
