@@ -1,0 +1,556 @@
+ -- Copyright (C) 2024  Intel Corporation. All rights reserved.
+ -- Your use of Intel Corporation's design tools, logic functions 
+ -- and other software and tools, and any partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Intel Program License 
+ -- Subscription Agreement, the Intel Quartus Prime License Agreement,
+ -- the Intel FPGA IP License Agreement, or other applicable license
+ -- agreement, including, without limitation, that your use is for
+ -- the sole purpose of programming logic devices manufactured by
+ -- Intel and sold by Intel or its authorized distributors.  Please
+ -- refer to the applicable agreement for further details, at
+ -- https://fpgasoftware.intel.com/eula.
+ -- 
+ -- This is a Quartus Prime output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus Prime input file. This file cannot be used
+ -- to make Quartus Prime pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus Prime help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.2V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --                  Bank 1A:       2.5V
+ --                  Bank 1B:       2.5V
+ --                  Bank 2:       2.5V
+ --                  Bank 3:       2.5V
+ --                  Bank 4:       2.5V
+ --                  Bank 5:       2.5V
+ --                  Bank 6:       2.5V
+ --                  Bank 7:       2.5V
+ --                  Bank 8:       2.5V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --                  It can also be used to report unused dedicated pins. The connection
+ --                  on the board for unused dedicated pins depends on whether this will
+ --                  be used in a future design. One example is device migration. When
+ --                  using device migration, refer to the device pin-tables. If it is a
+ --                  GND pin in the pin table or if it will not be used in a future design
+ --                  for another purpose the it MUST be connected to GND. If it is an unused
+ --                  dedicated pin, then it can be connected to a valid signal on the board
+ --                  (low, high, or toggling) if that signal is required for a different
+ --                  revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --                  This pin should be connected to GND. It may also be connected  to a
+ --                  valid signal  on the board  (low, high, or toggling)  if that signal
+ --                  is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --                  or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+CHIP  "main"  ASSIGNED TO AN: 10M08DAF484C8G
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GND                          : A1        : gnd    :                   :         :           :                
+PC[1]                        : A2        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A3        :        :                   :         : 8         :                
+PC[18]                       : A4        : output : 2.5 V             :         : 8         : N              
+nextPC[5]                    : A5        : input  : 2.5 V             :         : 8         : N              
+nextPC[28]                   : A6        : input  : 2.5 V             :         : 8         : N              
+PC[4]                        : A7        : output : 2.5 V             :         : 7         : N              
+nextPC[23]                   : A8        : input  : 2.5 V             :         : 7         : N              
+address[25]                  : A9        : input  : 2.5 V             :         : 7         : N              
+NC                           : A10       :        :                   :         :           :                
+NC                           : A11       :        :                   :         :           :                
+NC                           : A12       :        :                   :         :           :                
+NC                           : A13       :        :                   :         :           :                
+PC[15]                       : A14       : output : 2.5 V             :         : 7         : N              
+PC[27]                       : A15       : output : 2.5 V             :         : 7         : N              
+NC                           : A16       :        :                   :         :           :                
+NC                           : A17       :        :                   :         :           :                
+NC                           : A18       :        :                   :         :           :                
+NC                           : A19       :        :                   :         :           :                
+NC                           : A20       :        :                   :         :           :                
+NC                           : A21       :        :                   :         :           :                
+GND                          : A22       : gnd    :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA1       :        :                   :         : 3         :                
+address[29]                  : AA2       : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA3       :        :                   :         : 3         :                
+GND                          : AA4       : gnd    :                   :         :           :                
+PC[9]                        : AA5       : output : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA6       :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA7       :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA8       :        :                   :         : 3         :                
+nextPC[6]                    : AA9       : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA10      :        :                   :         : 3         :                
+NC                           : AA11      :        :                   :         :           :                
+NC                           : AA12      :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA13      :        :                   :         : 4         :                
+PC[20]                       : AA14      : output : 2.5 V             :         : 4         : N              
+ReadData[5]                  : AA15      : output : 2.5 V             :         : 4         : N              
+nextPC[25]                   : AA16      : input  : 2.5 V             :         : 4         : N              
+NC                           : AA17      :        :                   :         :           :                
+GND                          : AA18      : gnd    :                   :         :           :                
+NC                           : AA19      :        :                   :         :           :                
+NC                           : AA20      :        :                   :         :           :                
+PC[14]                       : AA21      : output : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA22      :        :                   :         : 5         :                
+GND                          : AB1       : gnd    :                   :         :           :                
+NC                           : AB2       :        :                   :         :           :                
+NC                           : AB3       :        :                   :         :           :                
+PC[17]                       : AB4       : output : 2.5 V             :         : 3         : N              
+ReadData[4]                  : AB5       : output : 2.5 V             :         : 3         : N              
+nextPC[17]                   : AB6       : input  : 2.5 V             :         : 3         : N              
+nextPC[9]                    : AB7       : input  : 2.5 V             :         : 3         : N              
+PC[13]                       : AB8       : output : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB9       :        :                   :         : 3         :                
+NC                           : AB10      :        :                   :         :           :                
+NC                           : AB11      :        :                   :         :           :                
+NC                           : AB12      :        :                   :         :           :                
+NC                           : AB13      :        :                   :         :           :                
+ReadData[25]                 : AB14      : output : 2.5 V             :         : 4         : N              
+nextPC[30]                   : AB15      : input  : 2.5 V             :         : 4         : N              
+PC[25]                       : AB16      : output : 2.5 V             :         : 4         : N              
+PC[19]                       : AB17      : output : 2.5 V             :         : 4         : N              
+address[1]                   : AB18      : input  : 2.5 V             :         : 4         : N              
+NC                           : AB19      :        :                   :         :           :                
+NC                           : AB20      :        :                   :         :           :                
+NC                           : AB21      :        :                   :         :           :                
+GND                          : AB22      : gnd    :                   :         :           :                
+ALUSrc                       : B1        : output : 2.5 V             :         : 8         : N              
+writeData[0]                 : B2        : input  : 2.5 V             :         : 8         : N              
+nextPC[2]                    : B3        : input  : 2.5 V             :         : 8         : N              
+writeData[4]                 : B4        : input  : 2.5 V             :         : 8         : N              
+ReadData[7]                  : B5        : output : 2.5 V             :         : 8         : N              
+GND                          : B6        : gnd    :                   :         :           :                
+nextPC[18]                   : B7        : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : B8        :        :                   :         : 7         :                
+GND                          : B9        : gnd    :                   :         :           :                
+PC[23]                       : B10       : output : 2.5 V             :         : 7         : N              
+NC                           : B11       :        :                   :         :           :                
+NC                           : B12       :        :                   :         :           :                
+GND                          : B13       : gnd    :                   :         :           :                
+nextPC[27]                   : B14       : input  : 2.5 V             :         : 7         : N              
+PC[7]                        : B15       : output : 2.5 V             :         : 7         : N              
+NC                           : B16       :        :                   :         :           :                
+NC                           : B17       :        :                   :         :           :                
+GND                          : B18       : gnd    :                   :         :           :                
+NC                           : B19       :        :                   :         :           :                
+NC                           : B20       :        :                   :         :           :                
+NC                           : B21       :        :                   :         :           :                
+NC                           : B22       :        :                   :         :           :                
+writeData[12]                : C1        : input  : 2.5 V             :         : 1B        : N              
+Branch                       : C2        : output : 2.5 V             :         : 8         : N              
+opcode[4]                    : C3        : input  : 2.5 V             :         : 8         : N              
+ReadData[8]                  : C4        : output : 2.5 V             :         : 8         : N              
+writeData[13]                : C5        : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : C6        :        :                   :         : 8         :                
+PCSrc                        : C7        : output : 2.5 V             :         : 8         : N              
+PC[12]                       : C8        : output : 2.5 V             :         : 8         : N              
+nextPC[4]                    : C9        : input  : 2.5 V             :         : 7         : N              
+NC                           : C10       :        :                   :         :           :                
+NC                           : C11       :        :                   :         :           :                
+NC                           : C12       :        :                   :         :           :                
+nextPC[16]                   : C13       : input  : 2.5 V             :         : 7         : N              
+PC[16]                       : C14       : output : 2.5 V             :         : 7         : N              
+NC                           : C15       :        :                   :         :           :                
+NC                           : C16       :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : C17       :        :                   :         : 7         :                
+NC                           : C18       :        :                   :         :           :                
+NC                           : C19       :        :                   :         :           :                
+address[26]                  : C20       : input  : 2.5 V             :         : 6         : N              
+nextPC[21]                   : C21       : input  : 2.5 V             :         : 6         : N              
+address[6]                   : C22       : input  : 2.5 V             :         : 6         : N              
+ReadData[16]                 : D1        : output : 2.5 V             :         : 1B        : N              
+ReadData[3]                  : D2        : output : 2.5 V             :         : 1B        : N              
+ReadData[2]                  : D3        : output : 2.5 V             :         : 1B        : N              
+GND                          : D4        : gnd    :                   :         :           :                
+address[28]                  : D5        : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D6        :        :                   :         : 8         :                
+nextPC[1]                    : D7        : input  : 2.5 V             :         : 8         : N              
+PC[5]                        : D8        : output : 2.5 V             :         : 8         : N              
+PC[28]                       : D9        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D10       :        :                   :         : 8         :                
+GND                          : D11       : gnd    :                   :         :           :                
+NC                           : D12       :        :                   :         :           :                
+nextPC[26]                   : D13       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D14       :        :                   :         : 7         :                
+NC                           : D15       :        :                   :         :           :                
+GND                          : D16       : gnd    :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : D17       :        :                   :         : 7         :                
+address[8]                   : D18       : input  : 2.5 V             :         : 6         : N              
+PC[10]                       : D19       : output : 2.5 V             :         : 6         : N              
+GND                          : D20       : gnd    :                   :         :           :                
+address[23]                  : D21       : input  : 2.5 V             :         : 6         : N              
+writeData[25]                : D22       : input  : 2.5 V             :         : 6         : N              
+ReadData[6]                  : E1        : output : 2.5 V             :         : 1B        : N              
+GND                          : E2        : gnd    :                   :         :           :                
+PC[2]                        : E3        : output : 2.5 V             :         : 1A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E4        :        :                   :         : 1A        :                
+GND                          : E5        : gnd    :                   :         :           :                
+ReadData[1]                  : E6        : output : 2.5 V             :         : 8         : N              
+GND                          : E7        : gnd    :                   :         :           :                
+writeData[1]                 : E8        : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E9        :        :                   :         : 8         :                
+address[30]                  : E10       : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E11       :        :                   :         : 8         :                
+PC[0]                        : E12       : output : 2.5 V             :         : 7         : N              
+nextPC[0]                    : E13       : input  : 2.5 V             :         : 7         : N              
+NC                           : E14       :        :                   :         :           :                
+nextPC[7]                    : E15       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E16       :        :                   :         : 7         :                
+NC                           : E17       :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : E18       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : E19       :        :                   :         : 6         :                
+NC                           : E20       :        :                   :         :           :                
+ReadData[17]                 : E21       : output : 2.5 V             :         : 6         : N              
+ReadData[28]                 : E22       : output : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F1        :        :                   :         : 1B        :                
+ReadData[11]                 : F2        : output : 2.5 V             :         : 1B        : N              
+writeData[10]                : F3        : input  : 2.5 V             :         : 1A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F4        :        :                   :         : 1A        :                
+writeData[2]                 : F5        : input  : 2.5 V             :         : 1A        : N              
+GND                          : F6        : gnd    :                   :         :           :                
+ReadData[10]                 : F7        : output : 2.5 V             :         : 8         : N              
+~ALTERA_CONF_DONE~ / RESERVED_INPUT : F8        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
+VCCIO8                       : F9        : power  :                   : 2.5V    : 8         :                
+GND                          : F10       : gnd    :                   :         :           :                
+VCCIO8                       : F11       : power  :                   : 2.5V    : 8         :                
+VCCIO7                       : F12       : power  :                   : 2.5V    : 7         :                
+GND                          : F13       : gnd    :                   :         :           :                
+VCCIO7                       : F14       : power  :                   : 2.5V    : 7         :                
+NC                           : F15       :        :                   :         :           :                
+NC                           : F16       :        :                   :         :           :                
+NC                           : F17       :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F18       :        :                   :         : 6         :                
+NC                           : F19       :        :                   :         :           :                
+address[5]                   : F20       : input  : 2.5 V             :         : 6         : N              
+writeData[27]                : F21       : input  : 2.5 V             :         : 6         : N              
+writeData[28]                : F22       : input  : 2.5 V             :         : 6         : N              
+address[12]                  : G1        : input  : 2.5 V             :         : 1B        : N              
+~ALTERA_TCK~ / RESERVED_INPUT : G2        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
+address[27]                  : G3        : input  : 2.5 V             :         : 1A        : N              
+writeData[5]                 : G4        : input  : 2.5 V             :         : 1A        : N              
+ANAIN1                       : G5        :        :                   :         :           :                
+GND                          : G6        : gnd    :                   :         :           :                
+NC                           : G7        :        :                   :         :           :                
+GND                          : G8        : gnd    :                   :         :           :                
+~ALTERA_nSTATUS~ / RESERVED_INPUT : G9        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
+VCCIO8                       : G10       : power  :                   : 2.5V    : 8         :                
+VCCIO8                       : G11       : power  :                   : 2.5V    : 8         :                
+VCCIO7                       : G12       : power  :                   : 2.5V    : 7         :                
+VCCIO7                       : G13       : power  :                   : 2.5V    : 7         :                
+VCCIO7                       : G14       : power  :                   : 2.5V    : 7         :                
+GND                          : G15       : gnd    :                   :         :           :                
+VCCD_PLL2                    : G16       : power  :                   : 1.2V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G17       :        :                   :         : 6         :                
+GND                          : G18       : gnd    :                   :         :           :                
+ReadData[29]                 : G19       : output : 2.5 V             :         : 6         : N              
+writeData[11]                : G20       : input  : 2.5 V             :         : 6         : N              
+GND                          : G21       : gnd    :                   :         :           :                
+ReadData[23]                 : G22       : output : 2.5 V             :         : 6         : N              
+ReadData[12]                 : H1        : output : 2.5 V             :         : 1B        : N              
+~ALTERA_TMS~ / RESERVED_INPUT_WITH_WEAK_PULLUP : H2        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
+address[21]                  : H3        : input  : 2.5 V             :         : 1A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : H4        :        :                   :         : 1A        :                
+REFGND                       : H5        :        :                   :         :           :                
+ADC_VREF                     : H6        :        :                   :         :           :                
+VCCA_ADC                     : H7        : power  :                   : 2.5V    :           :                
+VCCA3                        : H8        : power  :                   : 2.5V    :           :                
+~ALTERA_nCONFIG~ / RESERVED_INPUT : H9        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
+~ALTERA_CONFIG_SEL~ / RESERVED_INPUT : H10       : input  : 2.5 V             :         : 8         : N              
+address[14]                  : H11       : input  : 2.5 V             :         : 8         : N              
+PC[26]                       : H12       : output : 2.5 V             :         : 7         : N              
+NC                           : H13       :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H14       :        :                   :         : 7         :                
+VCCA2                        : H15       : power  :                   : 2.5V    :           :                
+VCCIO6                       : H16       : power  :                   : 2.5V    : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H17       :        :                   :         : 6         :                
+NC                           : H18       :        :                   :         :           :                
+NC                           : H19       :        :                   :         :           :                
+NC                           : H20       :        :                   :         :           :                
+ReadData[24]                 : H21       : output : 2.5 V             :         : 6         : N              
+writeData[26]                : H22       : input  : 2.5 V             :         : 6         : N              
+writeData[6]                 : J1        : input  : 2.5 V             :         : 1B        : N              
+GND                          : J2        : gnd    :                   :         :           :                
+writeData[19]                : J3        : input  : 2.5 V             :         : 1A        : N              
+writeData[7]                 : J4        : input  : 2.5 V             :         : 1A        : N              
+NC                           : J5        :        :                   :         :           :                
+GND                          : J6        : gnd    :                   :         :           :                
+VCCINT                       : J7        : power  :                   : 1.2V    :           :                
+writeData[16]                : J8        : input  : 2.5 V             :         : 1A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J9        :        :                   :         : 1A        :                
+nextPC[12]                   : J10       : input  : 2.5 V             :         : 8         : N              
+address[20]                  : J11       : input  : 2.5 V             :         : 7         : N              
+NC                           : J12       :        :                   :         :           :                
+nextPC[15]                   : J13       : input  : 2.5 V             :         : 7         : N              
+NC                           : J14       :        :                   :         :           :                
+NC                           : J15       :        :                   :         :           :                
+GND                          : J16       : gnd    :                   :         :           :                
+VCCIO6                       : J17       : power  :                   : 2.5V    : 6         :                
+NC                           : J18       :        :                   :         :           :                
+GND                          : J19       : gnd    :                   :         :           :                
+NC                           : J20       :        :                   :         :           :                
+ReadData[27]                 : J21       : output : 2.5 V             :         : 6         : N              
+writeData[20]                : J22       : input  : 2.5 V             :         : 6         : N              
+NC                           : K1        :        :                   :         :           :                
+writeData[9]                 : K2        : input  : 2.5 V             :         : 1B        : N              
+GND                          : K3        : gnd    :                   :         :           :                
+address[17]                  : K4        : input  : 2.5 V             :         : 1A        : N              
+address[18]                  : K5        : input  : 2.5 V             :         : 1A        : N              
+address[0]                   : K6        : input  : 2.5 V             :         : 1A        : N              
+VCCIO1A                      : K7        : power  :                   : 2.5V    : 1A        :                
+writeData[8]                 : K8        : input  : 2.5 V             :         : 1B        : N              
+writeData[31]                : K9        : input  : 2.5 V             :         : 1B        : N              
+GND                          : K10       : gnd    :                   :         :           :                
+VCC                          : K11       : power  :                   : 1.2V    :           :                
+GND                          : K12       : gnd    :                   :         :           :                
+VCC                          : K13       : power  :                   : 1.2V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : K14       :        :                   :         : 6         :                
+nextPC[10]                   : K15       : input  : 2.5 V             :         : 6         : N              
+VCCIO6                       : K16       : power  :                   : 2.5V    : 6         :                
+VCCIO6                       : K17       : power  :                   : 2.5V    : 6         :                
+NC                           : K18       :        :                   :         :           :                
+NC                           : K19       :        :                   :         :           :                
+NC                           : K20       :        :                   :         :           :                
+ReadData[21]                 : K21       : output : 2.5 V             :         : 6         : N              
+ReadData[20]                 : K22       : output : 2.5 V             :         : 6         : N              
+NC                           : L1        :        :                   :         :           :                
+writeData[3]                 : L2        : input  : 2.5 V             :         : 1B        : N              
+DNU                          : L3        :        :                   :         :           :                
+~ALTERA_TDI~ / RESERVED_INPUT_WITH_WEAK_PULLUP : L4        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
+GND                          : L5        : gnd    :                   :         :           :                
+VCCIO1A                      : L6        : power  :                   : 2.5V    : 1A        :                
+VCCIO1B                      : L7        : power  :                   : 2.5V    : 1B        :                
+MemRead                      : L8        : output : 2.5 V             :         : 1B        : N              
+ReadData[0]                  : L9        : output : 2.5 V             :         : 1B        : N              
+VCC                          : L10       : power  :                   : 1.2V    :           :                
+VCC                          : L11       : power  :                   : 1.2V    :           :                
+VCC                          : L12       : power  :                   : 1.2V    :           :                
+GND                          : L13       : gnd    :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : L14       :        :                   :         : 6         :                
+address[19]                  : L15       : input  : 2.5 V             :         : 6         : N              
+VCCIO6                       : L16       : power  :                   : 2.5V    : 6         :                
+GND                          : L17       : gnd    :                   :         :           :                
+PC[21]                       : L18       : output : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : L19       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : L20       :        :                   :         : 6         :                
+GND                          : L21       : gnd    :                   :         :           :                
+address[4]                   : L22       : input  : 2.5 V             :         : 5         : N              
+MemWrite                     : M1        : output : 2.5 V             :         : 2         : N              
+opcode[2]                    : M2        : input  : 2.5 V             :         : 2         : N              
+NC                           : M3        :        :                   :         :           :                
+NC                           : M4        :        :                   :         :           :                
+~ALTERA_TDO~                 : M5        : output : 2.5 V             :         : 1B        : N              
+VCCIO1B                      : M6        : power  :                   : 2.5V    : 1B        :                
+GND                          : M7        : gnd    :                   :         :           :                
+clk                          : M8        : input  : 2.5 V             :         : 2         : N              
+ALUOp[3]                     : M9        : output : 2.5 V             :         : 2         : N              
+GND                          : M10       : gnd    :                   :         :           :                
+VCC                          : M11       : power  :                   : 1.2V    :           :                
+VCC                          : M12       : power  :                   : 1.2V    :           :                
+VCC                          : M13       : power  :                   : 1.2V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : M14       :        :                   :         : 6         :                
+ReadData[14]                 : M15       : output : 2.5 V             :         : 6         : N              
+GND                          : M16       : gnd    :                   :         :           :                
+VCCIO6                       : M17       : power  :                   : 2.5V    : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : M18       :        :                   :         : 6         :                
+GND                          : M19       : gnd    :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : M20       :        :                   :         : 6         :                
+ReadData[30]                 : M21       : output : 2.5 V             :         : 5         : N              
+address[3]                   : M22       : input  : 2.5 V             :         : 5         : N              
+address[13]                  : N1        : input  : 2.5 V             :         : 2         : N              
+opcode[3]                    : N2        : input  : 2.5 V             :         : 2         : N              
+RegWrite                     : N3        : output : 2.5 V             :         : 2         : N              
+MemToReg                     : N4        : output : 2.5 V             :         : 2         : N              
+opcode[1]                    : N5        : input  : 2.5 V             :         : 2         : N              
+VCCIO2                       : N6        : power  :                   : 2.5V    : 2         :                
+VCCIO2                       : N7        : power  :                   : 2.5V    : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N8        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N9        :        :                   :         : 2         :                
+VCC                          : N10       : power  :                   : 1.2V    :           :                
+GND                          : N11       : gnd    :                   :         :           :                
+VCC                          : N12       : power  :                   : 1.2V    :           :                
+GND                          : N13       : gnd    :                   :         :           :                
+ReadData[22]                 : N14       : output : 2.5 V             :         : 6         : N              
+ReadData[26]                 : N15       : output : 2.5 V             :         : 6         : N              
+VCCIO5                       : N16       : power  :                   : 2.5V    : 5         :                
+VCCIO6                       : N17       : power  :                   : 2.5V    : 6         :                
+writeData[14]                : N18       : input  : 2.5 V             :         : 6         : N              
+writeData[15]                : N19       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : N20       :        :                   :         : 6         :                
+writeData[24]                : N21       : input  : 2.5 V             :         : 5         : N              
+address[2]                   : N22       : input  : 2.5 V             :         : 5         : N              
+opcode[0]                    : P1        : input  : 2.5 V             :         : 2         : N              
+GND                          : P2        : gnd    :                   :         :           :                
+opcode[5]                    : P3        : input  : 2.5 V             :         : 2         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : P4        :        :                   :         : 2         :                
+nextPC[31]                   : P5        : input  : 2.5 V             :         : 2         : N              
+GND                          : P6        : gnd    :                   :         :           :                
+VCCIO2                       : P7        : power  :                   : 2.5V    : 2         :                
+NC                           : P8        :        :                   :         :           :                
+NC                           : P9        :        :                   :         :           :                
+ReadData[31]                 : P10       : output : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : P11       :        :                   :         : 3         :                
+NC                           : P12       :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P13       :        :                   :         : 4         :                
+writeData[23]                : P14       : input  : 2.5 V             :         : 5         : N              
+writeData[18]                : P15       : input  : 2.5 V             :         : 5         : N              
+VCCIO5                       : P16       : power  :                   : 2.5V    : 5         :                
+GND                          : P17       : gnd    :                   :         :           :                
+writeData[30]                : P18       : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : P19       :        :                   :         : 5         :                
+ReadData[18]                 : P20       : output : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : P21       :        :                   :         : 5         :                
+writeData[29]                : P22       : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R1        :        :                   :         : 2         :                
+PC[31]                       : R2        : output : 2.5 V             :         : 2         : N              
+ALUOp[1]                     : R3        : output : 2.5 V             :         : 2         : N              
+address[15]                  : R4        : input  : 2.5 V             :         : 2         : N              
+RegDst                       : R5        : output : 2.5 V             :         : 2         : N              
+VCCIO2                       : R6        : power  :                   : 2.5V    : 2         :                
+NC                           : R7        :        :                   :         :           :                
+VCCA1                        : R8        : power  :                   : 2.5V    :           :                
+NC                           : R9        :        :                   :         :           :                
+PC[11]                       : R10       : output : 2.5 V             :         : 3         : N              
+ReadData[13]                 : R11       : output : 2.5 V             :         : 3         : N              
+NC                           : R12       :        :                   :         :           :                
+address[10]                  : R13       : input  : 2.5 V             :         : 4         : N              
+nextPC[24]                   : R14       : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R15       :        :                   :         : 5         :                
+VCCIO5                       : R16       : power  :                   : 2.5V    : 5         :                
+VCCIO5                       : R17       : power  :                   : 2.5V    : 5         :                
+writeData[21]                : R18       : input  : 2.5 V             :         : 5         : N              
+GND                          : R19       : gnd    :                   :         :           :                
+writeData[22]                : R20       : input  : 2.5 V             :         : 5         : N              
+GND                          : R21       : gnd    :                   :         :           :                
+address[7]                   : R22       : input  : 2.5 V             :         : 5         : N              
+ALUOp[0]                     : T1        : output : 2.5 V             :         : 2         : N              
+Jump                         : T2        : output : 2.5 V             :         : 2         : N              
+NC                           : T3        :        :                   :         :           :                
+GND                          : T4        : gnd    :                   :         :           :                
+ALUOp[2]                     : T5        : output : 2.5 V             :         : 2         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T6        :        :                   :         : 2         :                
+VCCD_PLL1                    : T7        : power  :                   : 1.2V    :           :                
+GND                          : T8        : gnd    :                   :         :           :                
+VCCIO3                       : T9        : power  :                   : 2.5V    : 3         :                
+VCCIO3                       : T10       : power  :                   : 2.5V    : 3         :                
+VCCIO3                       : T11       : power  :                   : 2.5V    : 3         :                
+VCCIO4                       : T12       : power  :                   : 2.5V    : 4         :                
+VCCIO4                       : T13       : power  :                   : 2.5V    : 4         :                
+GND                          : T14       : gnd    :                   :         :           :                
+VCCA4                        : T15       : power  :                   : 2.5V    :           :                
+GND                          : T16       : gnd    :                   :         :           :                
+VCCIO5                       : T17       : power  :                   : 2.5V    : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T18       :        :                   :         : 5         :                
+writeData[17]                : T19       : input  : 2.5 V             :         : 5         : N              
+address[16]                  : T20       : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T21       :        :                   :         : 5         :                
+nextPC[14]                   : T22       : input  : 2.5 V             :         : 5         : N              
+NC                           : U1        :        :                   :         :           :                
+NC                           : U2        :        :                   :         :           :                
+NC                           : U3        :        :                   :         :           :                
+NC                           : U4        :        :                   :         :           :                
+NC                           : U5        :        :                   :         :           :                
+nextPC[22]                   : U6        : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : U7        :        :                   :         : 3         :                
+VCCIO3                       : U8        : power  :                   : 2.5V    : 3         :                
+VCCIO3                       : U9        : power  :                   : 2.5V    : 3         :                
+GND                          : U10       : gnd    :                   :         :           :                
+VCCIO4                       : U11       : power  :                   : 2.5V    : 4         :                
+VCCIO4                       : U12       : power  :                   : 2.5V    : 4         :                
+GND                          : U13       : gnd    :                   :         :           :                
+VCCIO4                       : U14       : power  :                   : 2.5V    : 4         :                
+address[22]                  : U15       : input  : 2.5 V             :         : 4         : N              
+NC                           : U16       :        :                   :         :           :                
+nextPC[19]                   : U17       : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : U18       :        :                   :         : 5         :                
+NC                           : U19       :        :                   :         :           :                
+NC                           : U20       :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U22       :        :                   :         : 5         :                
+NC                           : V1        :        :                   :         :           :                
+GND                          : V2        : gnd    :                   :         :           :                
+NC                           : V3        :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V4        :        :                   :         : 3         :                
+PC[8]                        : V5        : output : 2.5 V             :         : 3         : N              
+GND                          : V6        : gnd    :                   :         :           :                
+NC                           : V7        :        :                   :         :           :                
+NC                           : V8        :        :                   :         :           :                
+nextPC[13]                   : V9        : input  : 2.5 V             :         : 3         : N              
+ReadData[9]                  : V10       : output : 2.5 V             :         : 3         : N              
+NC                           : V11       :        :                   :         :           :                
+NC                           : V12       :        :                   :         :           :                
+ReadData[15]                 : V13       : output : 2.5 V             :         : 4         : N              
+PC[3]                        : V14       : output : 2.5 V             :         : 4         : N              
+NC                           : V15       :        :                   :         :           :                
+PC[24]                       : V16       : output : 2.5 V             :         : 4         : N              
+address[31]                  : V17       : input  : 2.5 V             :         : 4         : N              
+NC                           : V18       :        :                   :         :           :                
+GND                          : V19       : gnd    :                   :         :           :                
+NC                           : V20       :        :                   :         :           :                
+NC                           : V21       :        :                   :         :           :                
+NC                           : V22       :        :                   :         :           :                
+NC                           : W1        :        :                   :         :           :                
+NC                           : W2        :        :                   :         :           :                
+PC[29]                       : W3        : output : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W4        :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W5        :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W6        :        :                   :         : 3         :                
+PC[22]                       : W7        : output : 2.5 V             :         : 3         : N              
+nextPC[11]                   : W8        : input  : 2.5 V             :         : 3         : N              
+NC                           : W9        :        :                   :         :           :                
+NC                           : W10       :        :                   :         :           :                
+NC                           : W11       :        :                   :         :           :                
+ReadData[19]                 : W12       : output : 2.5 V             :         : 4         : N              
+PC[6]                        : W13       : output : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W14       :        :                   :         : 4         :                
+nextPC[3]                    : W15       : input  : 2.5 V             :         : 4         : N              
+NC                           : W16       :        :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W17       :        :                   :         : 4         :                
+NC                           : W18       :        :                   :         :           :                
+NC                           : W19       :        :                   :         :           :                
+NC                           : W20       :        :                   :         :           :                
+GND                          : W21       : gnd    :                   :         :           :                
+NC                           : W22       :        :                   :         :           :                
+nextPC[8]                    : Y1        : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y2        :        :                   :         : 3         :                
+nextPC[29]                   : Y3        : input  : 2.5 V             :         : 3         : N              
+address[9]                   : Y4        : input  : 2.5 V             :         : 3         : N              
+NC                           : Y5        :        :                   :         :           :                
+NC                           : Y6        :        :                   :         :           :                
+NC                           : Y7        :        :                   :         :           :                
+NC                           : Y8        :        :                   :         :           :                
+GND                          : Y9        : gnd    :                   :         :           :                
+address[24]                  : Y10       : input  : 2.5 V             :         : 3         : N              
+NC                           : Y11       :        :                   :         :           :                
+GND                          : Y12       : gnd    :                   :         :           :                
+address[11]                  : Y13       : input  : 2.5 V             :         : 4         : N              
+PC[30]                       : Y14       : output : 2.5 V             :         : 4         : N              
+GND                          : Y15       : gnd    :                   :         :           :                
+nextPC[20]                   : Y16       : input  : 2.5 V             :         : 4         : N              
+NC                           : Y17       :        :                   :         :           :                
+NC                           : Y18       :        :                   :         :           :                
+NC                           : Y19       :        :                   :         :           :                
+NC                           : Y20       :        :                   :         :           :                
+NC                           : Y21       :        :                   :         :           :                
+NC                           : Y22       :        :                   :         :           :                

@@ -1,0 +1,9 @@
+module main (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite, PCSrc);
+	//Descrição das Entradas e Sinais:
+	input wire [5:0] opcode; //6 bits com o opcode da instrucao
+	input wire clk;
+	output reg RegDst, Jump, Branch, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite, PCSrc;
+	output reg [3:0] ALUOp;
+	
+	control ctrl(clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite, PCSrc);
+endmodule
