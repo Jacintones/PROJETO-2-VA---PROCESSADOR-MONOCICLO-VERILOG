@@ -1,0 +1,39 @@
+module test_mux_branch;
+
+    // Declaração de sinais
+    reg [31:0] branch_addr;
+    reg [31:0] pc_plus4;
+    reg branch;
+    wire [31:0] mux_out;
+
+    // Instanciando o módulo mux_branch
+    mux_branch uut (
+        .branch_addr(branch_addr),
+        .pc_plus4(pc_plus4),
+        .branch(branch),
+        .mux_out(mux_out)
+    );
+
+    // Bloco de teste
+    initial begin
+        // Teste 1: Sem salto, branch = 0
+        branch_addr = 32'hA000_0000;  // Exemplo de endereço de salto
+        pc_plus4 = 32'h0000_0004;    // PC + 4
+        branch = 0;                  // Nenhum salto, usa PC + 4
+        #10;                         // Espera 10 unidades de tempo
+
+        // Teste 2: Com salto, branch = 1
+        branch = 1;                  // Ativa o salto
+        #10;
+
+        // Teste 3: Sem salto, branch = 0 novamente
+        branch = 0;
+        #10;
+
+        // Teste 4: Com salto, branch = 1 novamente
+        branch = 1;
+        #10;
+        
+        $stop;  // Parar a simulação
+    end
+endmodule

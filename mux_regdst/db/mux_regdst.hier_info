@@ -1,0 +1,23 @@
+|mux_regdst
+rt[0] => WriteRegister.DATAA
+rt[1] => WriteRegister.DATAA
+rt[2] => WriteRegister.DATAA
+rt[3] => WriteRegister.DATAA
+rt[4] => WriteRegister.DATAA
+rd[0] => WriteRegister.DATAB
+rd[1] => WriteRegister.DATAB
+rd[2] => WriteRegister.DATAB
+rd[3] => WriteRegister.DATAB
+rd[4] => WriteRegister.DATAB
+RegDst => WriteRegister.OUTPUTSELECT
+RegDst => WriteRegister.OUTPUTSELECT
+RegDst => WriteRegister.OUTPUTSELECT
+RegDst => WriteRegister.OUTPUTSELECT
+RegDst => WriteRegister.OUTPUTSELECT
+WriteRegister[0] <= WriteRegister.DB_MAX_OUTPUT_PORT_TYPE
+WriteRegister[1] <= WriteRegister.DB_MAX_OUTPUT_PORT_TYPE
+WriteRegister[2] <= WriteRegister.DB_MAX_OUTPUT_PORT_TYPE
+WriteRegister[3] <= WriteRegister.DB_MAX_OUTPUT_PORT_TYPE
+WriteRegister[4] <= WriteRegister.DB_MAX_OUTPUT_PORT_TYPE
+
+

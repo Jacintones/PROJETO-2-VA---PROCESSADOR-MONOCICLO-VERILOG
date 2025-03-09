@@ -1,0 +1,2219 @@
+// Copyright (C) 2024  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition"
+
+// DATE "03/09/2025 17:35:19"
+
+// 
+// Device: Altera 10M08DAF484C8G Package FBGA484
+// 
+
+// 
+// This Verilog file should be used for Questa Intel FPGA (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module mux_memtoreg (
+	MemtoReg,
+	ALUResult,
+	MemData,
+	WriteData);
+input 	MemtoReg;
+input 	[31:0] ALUResult;
+input 	[31:0] MemData;
+output 	[31:0] WriteData;
+
+// Design Ports Information
+// WriteData[0]	=>  Location: PIN_R14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[1]	=>  Location: PIN_AB5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[2]	=>  Location: PIN_AB6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[3]	=>  Location: PIN_U17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[4]	=>  Location: PIN_C4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[5]	=>  Location: PIN_AA9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[6]	=>  Location: PIN_P13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[7]	=>  Location: PIN_AA1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[8]	=>  Location: PIN_R11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[9]	=>  Location: PIN_K9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[10]	=>  Location: PIN_AA6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[11]	=>  Location: PIN_AB4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[12]	=>  Location: PIN_Y10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[13]	=>  Location: PIN_AB17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[14]	=>  Location: PIN_T21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[15]	=>  Location: PIN_B4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[16]	=>  Location: PIN_G4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[17]	=>  Location: PIN_AA7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[18]	=>  Location: PIN_K5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[19]	=>  Location: PIN_H11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[20]	=>  Location: PIN_K4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[21]	=>  Location: PIN_E8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[22]	=>  Location: PIN_AB9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[23]	=>  Location: PIN_N18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[24]	=>  Location: PIN_N20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[25]	=>  Location: PIN_J4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[26]	=>  Location: PIN_H3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[27]	=>  Location: PIN_E4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[28]	=>  Location: PIN_G20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[29]	=>  Location: PIN_G3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[30]	=>  Location: PIN_E9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// WriteData[31]	=>  Location: PIN_P11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[0]	=>  Location: PIN_R10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[0]	=>  Location: PIN_V13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemtoReg	=>  Location: PIN_P10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[1]	=>  Location: PIN_AA16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[1]	=>  Location: PIN_AA10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[2]	=>  Location: PIN_AA13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[2]	=>  Location: PIN_V9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[3]	=>  Location: PIN_Y16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[3]	=>  Location: PIN_W14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[4]	=>  Location: PIN_D2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[4]	=>  Location: PIN_M14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[5]	=>  Location: PIN_U22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[5]	=>  Location: PIN_AB8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[6]	=>  Location: PIN_W12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[6]	=>  Location: PIN_U15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[7]	=>  Location: PIN_AB14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[7]	=>  Location: PIN_W4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[8]	=>  Location: PIN_C9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[8]	=>  Location: PIN_Y14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[9]	=>  Location: PIN_E1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[9]	=>  Location: PIN_J8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[10]	=>  Location: PIN_P15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[10]	=>  Location: PIN_AA8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[11]	=>  Location: PIN_R15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[11]	=>  Location: PIN_Y13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[12]	=>  Location: PIN_AA3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[12]	=>  Location: PIN_AA15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[13]	=>  Location: PIN_AA14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[13]	=>  Location: PIN_V10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[14]	=>  Location: PIN_AB15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[14]	=>  Location: PIN_AA21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[15]	=>  Location: PIN_F2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[15]	=>  Location: PIN_D9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[16]	=>  Location: PIN_K8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[16]	=>  Location: PIN_K6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[17]	=>  Location: PIN_T19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[17]	=>  Location: PIN_W13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[18]	=>  Location: PIN_L2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[18]	=>  Location: PIN_A3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[19]	=>  Location: PIN_B5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[19]	=>  Location: PIN_C1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[20]	=>  Location: PIN_D3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[20]	=>  Location: PIN_H4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[21]	=>  Location: PIN_A6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[21]	=>  Location: PIN_M20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[22]	=>  Location: PIN_T18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[22]	=>  Location: PIN_AB7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[23]	=>  Location: PIN_E21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[23]	=>  Location: PIN_B2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[24]	=>  Location: PIN_F3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[24]	=>  Location: PIN_D5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[25]	=>  Location: PIN_N19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[25]	=>  Location: PIN_C5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[26]	=>  Location: PIN_J3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[26]	=>  Location: PIN_F7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[27]	=>  Location: PIN_K2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[27]	=>  Location: PIN_B3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[28]	=>  Location: PIN_L8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[28]	=>  Location: PIN_W8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[29]	=>  Location: PIN_J9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[29]	=>  Location: PIN_A2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[30]	=>  Location: PIN_L9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[30]	=>  Location: PIN_D1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// MemData[31]	=>  Location: PIN_AA5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ALUResult[31]	=>  Location: PIN_R13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \~QUARTUS_CREATED_GND~I_combout ;
+wire \~QUARTUS_CREATED_UNVM~~busy ;
+wire \~QUARTUS_CREATED_ADC1~~eoc ;
+wire \WriteData[0]~output_o ;
+wire \WriteData[1]~output_o ;
+wire \WriteData[2]~output_o ;
+wire \WriteData[3]~output_o ;
+wire \WriteData[4]~output_o ;
+wire \WriteData[5]~output_o ;
+wire \WriteData[6]~output_o ;
+wire \WriteData[7]~output_o ;
+wire \WriteData[8]~output_o ;
+wire \WriteData[9]~output_o ;
+wire \WriteData[10]~output_o ;
+wire \WriteData[11]~output_o ;
+wire \WriteData[12]~output_o ;
+wire \WriteData[13]~output_o ;
+wire \WriteData[14]~output_o ;
+wire \WriteData[15]~output_o ;
+wire \WriteData[16]~output_o ;
+wire \WriteData[17]~output_o ;
+wire \WriteData[18]~output_o ;
+wire \WriteData[19]~output_o ;
+wire \WriteData[20]~output_o ;
+wire \WriteData[21]~output_o ;
+wire \WriteData[22]~output_o ;
+wire \WriteData[23]~output_o ;
+wire \WriteData[24]~output_o ;
+wire \WriteData[25]~output_o ;
+wire \WriteData[26]~output_o ;
+wire \WriteData[27]~output_o ;
+wire \WriteData[28]~output_o ;
+wire \WriteData[29]~output_o ;
+wire \WriteData[30]~output_o ;
+wire \WriteData[31]~output_o ;
+wire \ALUResult[0]~input_o ;
+wire \MemtoReg~input_o ;
+wire \MemData[0]~input_o ;
+wire \WriteData~0_combout ;
+wire \ALUResult[1]~input_o ;
+wire \MemData[1]~input_o ;
+wire \WriteData~1_combout ;
+wire \ALUResult[2]~input_o ;
+wire \MemData[2]~input_o ;
+wire \WriteData~2_combout ;
+wire \ALUResult[3]~input_o ;
+wire \MemData[3]~input_o ;
+wire \WriteData~3_combout ;
+wire \MemData[4]~input_o ;
+wire \ALUResult[4]~input_o ;
+wire \WriteData~4_combout ;
+wire \ALUResult[5]~input_o ;
+wire \MemData[5]~input_o ;
+wire \WriteData~5_combout ;
+wire \MemData[6]~input_o ;
+wire \ALUResult[6]~input_o ;
+wire \WriteData~6_combout ;
+wire \ALUResult[7]~input_o ;
+wire \MemData[7]~input_o ;
+wire \WriteData~7_combout ;
+wire \MemData[8]~input_o ;
+wire \ALUResult[8]~input_o ;
+wire \WriteData~8_combout ;
+wire \ALUResult[9]~input_o ;
+wire \MemData[9]~input_o ;
+wire \WriteData~9_combout ;
+wire \ALUResult[10]~input_o ;
+wire \MemData[10]~input_o ;
+wire \WriteData~10_combout ;
+wire \MemData[11]~input_o ;
+wire \ALUResult[11]~input_o ;
+wire \WriteData~11_combout ;
+wire \MemData[12]~input_o ;
+wire \ALUResult[12]~input_o ;
+wire \WriteData~12_combout ;
+wire \ALUResult[13]~input_o ;
+wire \MemData[13]~input_o ;
+wire \WriteData~13_combout ;
+wire \MemData[14]~input_o ;
+wire \ALUResult[14]~input_o ;
+wire \WriteData~14_combout ;
+wire \MemData[15]~input_o ;
+wire \ALUResult[15]~input_o ;
+wire \WriteData~15_combout ;
+wire \MemData[16]~input_o ;
+wire \ALUResult[16]~input_o ;
+wire \WriteData~16_combout ;
+wire \MemData[17]~input_o ;
+wire \ALUResult[17]~input_o ;
+wire \WriteData~17_combout ;
+wire \MemData[18]~input_o ;
+wire \ALUResult[18]~input_o ;
+wire \WriteData~18_combout ;
+wire \MemData[19]~input_o ;
+wire \ALUResult[19]~input_o ;
+wire \WriteData~19_combout ;
+wire \MemData[20]~input_o ;
+wire \ALUResult[20]~input_o ;
+wire \WriteData~20_combout ;
+wire \ALUResult[21]~input_o ;
+wire \MemData[21]~input_o ;
+wire \WriteData~21_combout ;
+wire \ALUResult[22]~input_o ;
+wire \MemData[22]~input_o ;
+wire \WriteData~22_combout ;
+wire \ALUResult[23]~input_o ;
+wire \MemData[23]~input_o ;
+wire \WriteData~23_combout ;
+wire \MemData[24]~input_o ;
+wire \ALUResult[24]~input_o ;
+wire \WriteData~24_combout ;
+wire \MemData[25]~input_o ;
+wire \ALUResult[25]~input_o ;
+wire \WriteData~25_combout ;
+wire \ALUResult[26]~input_o ;
+wire \MemData[26]~input_o ;
+wire \WriteData~26_combout ;
+wire \ALUResult[27]~input_o ;
+wire \MemData[27]~input_o ;
+wire \WriteData~27_combout ;
+wire \MemData[28]~input_o ;
+wire \ALUResult[28]~input_o ;
+wire \WriteData~28_combout ;
+wire \MemData[29]~input_o ;
+wire \ALUResult[29]~input_o ;
+wire \WriteData~29_combout ;
+wire \ALUResult[30]~input_o ;
+wire \MemData[30]~input_o ;
+wire \WriteData~30_combout ;
+wire \ALUResult[31]~input_o ;
+wire \MemData[31]~input_o ;
+wire \WriteData~31_combout ;
+
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: LCCOMB_X11_Y15_N16
+fiftyfivenm_lcell_comb \~QUARTUS_CREATED_GND~I (
+// Equation(s):
+// \~QUARTUS_CREATED_GND~I_combout  = GND
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\~QUARTUS_CREATED_GND~I_combout ),
+	.cout());
+// synopsys translate_off
+defparam \~QUARTUS_CREATED_GND~I .lut_mask = 16'h0000;
+defparam \~QUARTUS_CREATED_GND~I .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y2_N16
+fiftyfivenm_io_obuf \WriteData[0]~output (
+	.i(\WriteData~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[0]~output .bus_hold = "false";
+defparam \WriteData[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X13_Y0_N23
+fiftyfivenm_io_obuf \WriteData[1]~output (
+	.i(\WriteData~1_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[1]~output .bus_hold = "false";
+defparam \WriteData[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X13_Y0_N2
+fiftyfivenm_io_obuf \WriteData[2]~output (
+	.i(\WriteData~2_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[2]~output .bus_hold = "false";
+defparam \WriteData[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y1_N16
+fiftyfivenm_io_obuf \WriteData[3]~output (
+	.i(\WriteData~3_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[3]~output .bus_hold = "false";
+defparam \WriteData[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X6_Y10_N16
+fiftyfivenm_io_obuf \WriteData[4]~output (
+	.i(\WriteData~4_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[4]~output .bus_hold = "false";
+defparam \WriteData[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X17_Y0_N16
+fiftyfivenm_io_obuf \WriteData[5]~output (
+	.i(\WriteData~5_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[5]~output .bus_hold = "false";
+defparam \WriteData[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X22_Y0_N9
+fiftyfivenm_io_obuf \WriteData[6]~output (
+	.i(\WriteData~6_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[6]~output .bus_hold = "false";
+defparam \WriteData[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X6_Y0_N9
+fiftyfivenm_io_obuf \WriteData[7]~output (
+	.i(\WriteData~7_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[7]~output .bus_hold = "false";
+defparam \WriteData[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X17_Y0_N30
+fiftyfivenm_io_obuf \WriteData[8]~output (
+	.i(\WriteData~8_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[8]~output .bus_hold = "false";
+defparam \WriteData[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y18_N23
+fiftyfivenm_io_obuf \WriteData[9]~output (
+	.i(\WriteData~9_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[9]~output .bus_hold = "false";
+defparam \WriteData[9]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X13_Y0_N16
+fiftyfivenm_io_obuf \WriteData[10]~output (
+	.i(\WriteData~10_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[10]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[10]~output .bus_hold = "false";
+defparam \WriteData[10]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X11_Y0_N16
+fiftyfivenm_io_obuf \WriteData[11]~output (
+	.i(\WriteData~11_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[11]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[11]~output .bus_hold = "false";
+defparam \WriteData[11]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X17_Y0_N2
+fiftyfivenm_io_obuf \WriteData[12]~output (
+	.i(\WriteData~12_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[12]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[12]~output .bus_hold = "false";
+defparam \WriteData[12]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X29_Y0_N23
+fiftyfivenm_io_obuf \WriteData[13]~output (
+	.i(\WriteData~13_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[13]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[13]~output .bus_hold = "false";
+defparam \WriteData[13]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y2_N9
+fiftyfivenm_io_obuf \WriteData[14]~output (
+	.i(\WriteData~14_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[14]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[14]~output .bus_hold = "false";
+defparam \WriteData[14]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X6_Y10_N2
+fiftyfivenm_io_obuf \WriteData[15]~output (
+	.i(\WriteData~15_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[15]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[15]~output .bus_hold = "false";
+defparam \WriteData[15]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y21_N2
+fiftyfivenm_io_obuf \WriteData[16]~output (
+	.i(\WriteData~16_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[16]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[16]~output .bus_hold = "false";
+defparam \WriteData[16]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X13_Y0_N9
+fiftyfivenm_io_obuf \WriteData[17]~output (
+	.i(\WriteData~17_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[17]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[17]~output .bus_hold = "false";
+defparam \WriteData[17]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y19_N16
+fiftyfivenm_io_obuf \WriteData[18]~output (
+	.i(\WriteData~18_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[18]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[18]~output .bus_hold = "false";
+defparam \WriteData[18]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X17_Y25_N30
+fiftyfivenm_io_obuf \WriteData[19]~output (
+	.i(\WriteData~19_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[19]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[19]~output .bus_hold = "false";
+defparam \WriteData[19]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y19_N2
+fiftyfivenm_io_obuf \WriteData[20]~output (
+	.i(\WriteData~20_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[20]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[20]~output .bus_hold = "false";
+defparam \WriteData[20]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X6_Y10_N23
+fiftyfivenm_io_obuf \WriteData[21]~output (
+	.i(\WriteData~21_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[21]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[21]~output .bus_hold = "false";
+defparam \WriteData[21]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X17_Y0_N9
+fiftyfivenm_io_obuf \WriteData[22]~output (
+	.i(\WriteData~22_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[22]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[22]~output .bus_hold = "false";
+defparam \WriteData[22]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y14_N23
+fiftyfivenm_io_obuf \WriteData[23]~output (
+	.i(\WriteData~23_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[23]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[23]~output .bus_hold = "false";
+defparam \WriteData[23]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y14_N2
+fiftyfivenm_io_obuf \WriteData[24]~output (
+	.i(\WriteData~24_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[24]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[24]~output .bus_hold = "false";
+defparam \WriteData[24]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y20_N16
+fiftyfivenm_io_obuf \WriteData[25]~output (
+	.i(\WriteData~25_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[25]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[25]~output .bus_hold = "false";
+defparam \WriteData[25]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y20_N23
+fiftyfivenm_io_obuf \WriteData[26]~output (
+	.i(\WriteData~26_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[26]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[26]~output .bus_hold = "false";
+defparam \WriteData[26]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y22_N2
+fiftyfivenm_io_obuf \WriteData[27]~output (
+	.i(\WriteData~27_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[27]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[27]~output .bus_hold = "false";
+defparam \WriteData[27]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y12_N23
+fiftyfivenm_io_obuf \WriteData[28]~output (
+	.i(\WriteData~28_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[28]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[28]~output .bus_hold = "false";
+defparam \WriteData[28]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y20_N9
+fiftyfivenm_io_obuf \WriteData[29]~output (
+	.i(\WriteData~29_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[29]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[29]~output .bus_hold = "false";
+defparam \WriteData[29]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X13_Y25_N16
+fiftyfivenm_io_obuf \WriteData[30]~output (
+	.i(\WriteData~30_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[30]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[30]~output .bus_hold = "false";
+defparam \WriteData[30]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X17_Y0_N23
+fiftyfivenm_io_obuf \WriteData[31]~output (
+	.i(\WriteData~31_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\WriteData[31]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \WriteData[31]~output .bus_hold = "false";
+defparam \WriteData[31]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X19_Y0_N8
+fiftyfivenm_io_ibuf \ALUResult[0]~input (
+	.i(ALUResult[0]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[0]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[0]~input .bus_hold = "false";
+defparam \ALUResult[0]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y0_N1
+fiftyfivenm_io_ibuf \MemtoReg~input (
+	.i(MemtoReg),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemtoReg~input_o ));
+// synopsys translate_off
+defparam \MemtoReg~input .bus_hold = "false";
+defparam \MemtoReg~input .listen_to_nsleep_signal = "false";
+defparam \MemtoReg~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y0_N8
+fiftyfivenm_io_ibuf \MemData[0]~input (
+	.i(MemData[0]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[0]~input_o ));
+// synopsys translate_off
+defparam \MemData[0]~input .bus_hold = "false";
+defparam \MemData[0]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N0
+fiftyfivenm_lcell_comb \WriteData~0 (
+// Equation(s):
+// \WriteData~0_combout  = (\MemtoReg~input_o  & ((\MemData[0]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[0]~input_o ))
+
+	.dataa(gnd),
+	.datab(\ALUResult[0]~input_o ),
+	.datac(\MemtoReg~input_o ),
+	.datad(\MemData[0]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~0 .lut_mask = 16'hFC0C;
+defparam \WriteData~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X19_Y0_N29
+fiftyfivenm_io_ibuf \ALUResult[1]~input (
+	.i(ALUResult[1]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[1]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[1]~input .bus_hold = "false";
+defparam \ALUResult[1]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X27_Y0_N8
+fiftyfivenm_io_ibuf \MemData[1]~input (
+	.i(MemData[1]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[1]~input_o ));
+// synopsys translate_off
+defparam \MemData[1]~input .bus_hold = "false";
+defparam \MemData[1]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N2
+fiftyfivenm_lcell_comb \WriteData~1 (
+// Equation(s):
+// \WriteData~1_combout  = (\MemtoReg~input_o  & ((\MemData[1]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[1]~input_o ))
+
+	.dataa(gnd),
+	.datab(\ALUResult[1]~input_o ),
+	.datac(\MemtoReg~input_o ),
+	.datad(\MemData[1]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~1 .lut_mask = 16'hFC0C;
+defparam \WriteData~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X15_Y0_N22
+fiftyfivenm_io_ibuf \ALUResult[2]~input (
+	.i(ALUResult[2]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[2]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[2]~input .bus_hold = "false";
+defparam \ALUResult[2]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X22_Y0_N29
+fiftyfivenm_io_ibuf \MemData[2]~input (
+	.i(MemData[2]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[2]~input_o ));
+// synopsys translate_off
+defparam \MemData[2]~input .bus_hold = "false";
+defparam \MemData[2]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N20
+fiftyfivenm_lcell_comb \WriteData~2 (
+// Equation(s):
+// \WriteData~2_combout  = (\MemtoReg~input_o  & ((\MemData[2]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[2]~input_o ))
+
+	.dataa(gnd),
+	.datab(\ALUResult[2]~input_o ),
+	.datac(\MemtoReg~input_o ),
+	.datad(\MemData[2]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~2 .lut_mask = 16'hFC0C;
+defparam \WriteData~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X19_Y0_N1
+fiftyfivenm_io_ibuf \ALUResult[3]~input (
+	.i(ALUResult[3]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[3]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[3]~input .bus_hold = "false";
+defparam \ALUResult[3]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X24_Y0_N1
+fiftyfivenm_io_ibuf \MemData[3]~input (
+	.i(MemData[3]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[3]~input_o ));
+// synopsys translate_off
+defparam \MemData[3]~input .bus_hold = "false";
+defparam \MemData[3]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N6
+fiftyfivenm_lcell_comb \WriteData~3 (
+// Equation(s):
+// \WriteData~3_combout  = (\MemtoReg~input_o  & ((\MemData[3]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[3]~input_o ))
+
+	.dataa(\ALUResult[3]~input_o ),
+	.datab(gnd),
+	.datac(\MemtoReg~input_o ),
+	.datad(\MemData[3]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~3 .lut_mask = 16'hFA0A;
+defparam \WriteData~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y18_N8
+fiftyfivenm_io_ibuf \MemData[4]~input (
+	.i(MemData[4]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[4]~input_o ));
+// synopsys translate_off
+defparam \MemData[4]~input .bus_hold = "false";
+defparam \MemData[4]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y13_N15
+fiftyfivenm_io_ibuf \ALUResult[4]~input (
+	.i(ALUResult[4]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[4]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[4]~input .bus_hold = "false";
+defparam \ALUResult[4]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N16
+fiftyfivenm_lcell_comb \WriteData~4 (
+// Equation(s):
+// \WriteData~4_combout  = (\MemtoReg~input_o  & (\MemData[4]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[4]~input_o )))
+
+	.dataa(\MemData[4]~input_o ),
+	.datab(gnd),
+	.datac(\ALUResult[4]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~4 .lut_mask = 16'hAAF0;
+defparam \WriteData~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X15_Y0_N1
+fiftyfivenm_io_ibuf \ALUResult[5]~input (
+	.i(ALUResult[5]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[5]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[5]~input .bus_hold = "false";
+defparam \ALUResult[5]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y4_N15
+fiftyfivenm_io_ibuf \MemData[5]~input (
+	.i(MemData[5]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[5]~input_o ));
+// synopsys translate_off
+defparam \MemData[5]~input .bus_hold = "false";
+defparam \MemData[5]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N24
+fiftyfivenm_lcell_comb \WriteData~5 (
+// Equation(s):
+// \WriteData~5_combout  = (\MemtoReg~input_o  & ((\MemData[5]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[5]~input_o ))
+
+	.dataa(\ALUResult[5]~input_o ),
+	.datab(gnd),
+	.datac(\MemtoReg~input_o ),
+	.datad(\MemData[5]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~5 .lut_mask = 16'hFA0A;
+defparam \WriteData~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X19_Y0_N22
+fiftyfivenm_io_ibuf \MemData[6]~input (
+	.i(MemData[6]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[6]~input_o ));
+// synopsys translate_off
+defparam \MemData[6]~input .bus_hold = "false";
+defparam \MemData[6]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X27_Y0_N1
+fiftyfivenm_io_ibuf \ALUResult[6]~input (
+	.i(ALUResult[6]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[6]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[6]~input .bus_hold = "false";
+defparam \ALUResult[6]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N10
+fiftyfivenm_lcell_comb \WriteData~6 (
+// Equation(s):
+// \WriteData~6_combout  = (\MemtoReg~input_o  & (\MemData[6]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[6]~input_o )))
+
+	.dataa(\MemData[6]~input_o ),
+	.datab(gnd),
+	.datac(\MemtoReg~input_o ),
+	.datad(\ALUResult[6]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~6 .lut_mask = 16'hAFA0;
+defparam \WriteData~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X9_Y0_N29
+fiftyfivenm_io_ibuf \ALUResult[7]~input (
+	.i(ALUResult[7]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[7]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[7]~input .bus_hold = "false";
+defparam \ALUResult[7]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X22_Y0_N22
+fiftyfivenm_io_ibuf \MemData[7]~input (
+	.i(MemData[7]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[7]~input_o ));
+// synopsys translate_off
+defparam \MemData[7]~input .bus_hold = "false";
+defparam \MemData[7]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N4
+fiftyfivenm_lcell_comb \WriteData~7 (
+// Equation(s):
+// \WriteData~7_combout  = (\MemtoReg~input_o  & ((\MemData[7]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[7]~input_o ))
+
+	.dataa(\ALUResult[7]~input_o ),
+	.datab(\MemData[7]~input_o ),
+	.datac(\MemtoReg~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\WriteData~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~7 .lut_mask = 16'hCACA;
+defparam \WriteData~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X19_Y25_N8
+fiftyfivenm_io_ibuf \MemData[8]~input (
+	.i(MemData[8]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[8]~input_o ));
+// synopsys translate_off
+defparam \MemData[8]~input .bus_hold = "false";
+defparam \MemData[8]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X24_Y0_N15
+fiftyfivenm_io_ibuf \ALUResult[8]~input (
+	.i(ALUResult[8]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[8]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[8]~input .bus_hold = "false";
+defparam \ALUResult[8]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N14
+fiftyfivenm_lcell_comb \WriteData~8 (
+// Equation(s):
+// \WriteData~8_combout  = (\MemtoReg~input_o  & (\MemData[8]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[8]~input_o )))
+
+	.dataa(gnd),
+	.datab(\MemData[8]~input_o ),
+	.datac(\MemtoReg~input_o ),
+	.datad(\ALUResult[8]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~8 .lut_mask = 16'hCFC0;
+defparam \WriteData~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y21_N15
+fiftyfivenm_io_ibuf \ALUResult[9]~input (
+	.i(ALUResult[9]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[9]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[9]~input .bus_hold = "false";
+defparam \ALUResult[9]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y15_N1
+fiftyfivenm_io_ibuf \MemData[9]~input (
+	.i(MemData[9]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[9]~input_o ));
+// synopsys translate_off
+defparam \MemData[9]~input .bus_hold = "false";
+defparam \MemData[9]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N18
+fiftyfivenm_lcell_comb \WriteData~9 (
+// Equation(s):
+// \WriteData~9_combout  = (\MemtoReg~input_o  & ((\MemData[9]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[9]~input_o ))
+
+	.dataa(\ALUResult[9]~input_o ),
+	.datab(gnd),
+	.datac(\MemData[9]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~9 .lut_mask = 16'hF0AA;
+defparam \WriteData~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X15_Y0_N8
+fiftyfivenm_io_ibuf \ALUResult[10]~input (
+	.i(ALUResult[10]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[10]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[10]~input .bus_hold = "false";
+defparam \ALUResult[10]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y5_N22
+fiftyfivenm_io_ibuf \MemData[10]~input (
+	.i(MemData[10]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[10]~input_o ));
+// synopsys translate_off
+defparam \MemData[10]~input .bus_hold = "false";
+defparam \MemData[10]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N8
+fiftyfivenm_lcell_comb \WriteData~10 (
+// Equation(s):
+// \WriteData~10_combout  = (\MemtoReg~input_o  & ((\MemData[10]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[10]~input_o ))
+
+	.dataa(gnd),
+	.datab(\ALUResult[10]~input_o ),
+	.datac(\MemtoReg~input_o ),
+	.datad(\MemData[10]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~10_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~10 .lut_mask = 16'hFC0C;
+defparam \WriteData~10 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y2_N22
+fiftyfivenm_io_ibuf \MemData[11]~input (
+	.i(MemData[11]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[11]~input_o ));
+// synopsys translate_off
+defparam \MemData[11]~input .bus_hold = "false";
+defparam \MemData[11]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X24_Y0_N22
+fiftyfivenm_io_ibuf \ALUResult[11]~input (
+	.i(ALUResult[11]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[11]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[11]~input .bus_hold = "false";
+defparam \ALUResult[11]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N26
+fiftyfivenm_lcell_comb \WriteData~11 (
+// Equation(s):
+// \WriteData~11_combout  = (\MemtoReg~input_o  & (\MemData[11]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[11]~input_o )))
+
+	.dataa(gnd),
+	.datab(\MemtoReg~input_o ),
+	.datac(\MemData[11]~input_o ),
+	.datad(\ALUResult[11]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~11_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~11 .lut_mask = 16'hF3C0;
+defparam \WriteData~11 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y0_N22
+fiftyfivenm_io_ibuf \MemData[12]~input (
+	.i(MemData[12]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[12]~input_o ));
+// synopsys translate_off
+defparam \MemData[12]~input .bus_hold = "false";
+defparam \MemData[12]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X24_Y0_N8
+fiftyfivenm_io_ibuf \ALUResult[12]~input (
+	.i(ALUResult[12]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[12]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[12]~input .bus_hold = "false";
+defparam \ALUResult[12]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N12
+fiftyfivenm_lcell_comb \WriteData~12 (
+// Equation(s):
+// \WriteData~12_combout  = (\MemtoReg~input_o  & (\MemData[12]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[12]~input_o )))
+
+	.dataa(\MemData[12]~input_o ),
+	.datab(\MemtoReg~input_o ),
+	.datac(\ALUResult[12]~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\WriteData~12_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~12 .lut_mask = 16'hB8B8;
+defparam \WriteData~12 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X15_Y0_N15
+fiftyfivenm_io_ibuf \ALUResult[13]~input (
+	.i(ALUResult[13]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[13]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[13]~input .bus_hold = "false";
+defparam \ALUResult[13]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X22_Y0_N1
+fiftyfivenm_io_ibuf \MemData[13]~input (
+	.i(MemData[13]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[13]~input_o ));
+// synopsys translate_off
+defparam \MemData[13]~input .bus_hold = "false";
+defparam \MemData[13]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N30
+fiftyfivenm_lcell_comb \WriteData~13 (
+// Equation(s):
+// \WriteData~13_combout  = (\MemtoReg~input_o  & ((\MemData[13]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[13]~input_o ))
+
+	.dataa(\ALUResult[13]~input_o ),
+	.datab(\MemData[13]~input_o ),
+	.datac(\MemtoReg~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\WriteData~13_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~13 .lut_mask = 16'hCACA;
+defparam \WriteData~13 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X24_Y0_N29
+fiftyfivenm_io_ibuf \MemData[14]~input (
+	.i(MemData[14]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[14]~input_o ));
+// synopsys translate_off
+defparam \MemData[14]~input .bus_hold = "false";
+defparam \MemData[14]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y1_N8
+fiftyfivenm_io_ibuf \ALUResult[14]~input (
+	.i(ALUResult[14]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[14]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[14]~input .bus_hold = "false";
+defparam \ALUResult[14]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y1_N0
+fiftyfivenm_lcell_comb \WriteData~14 (
+// Equation(s):
+// \WriteData~14_combout  = (\MemtoReg~input_o  & (\MemData[14]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[14]~input_o )))
+
+	.dataa(\MemtoReg~input_o ),
+	.datab(gnd),
+	.datac(\MemData[14]~input_o ),
+	.datad(\ALUResult[14]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~14 .lut_mask = 16'hF5A0;
+defparam \WriteData~14 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y15_N8
+fiftyfivenm_io_ibuf \MemData[15]~input (
+	.i(MemData[15]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[15]~input_o ));
+// synopsys translate_off
+defparam \MemData[15]~input .bus_hold = "false";
+defparam \MemData[15]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X15_Y25_N22
+fiftyfivenm_io_ibuf \ALUResult[15]~input (
+	.i(ALUResult[15]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[15]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[15]~input .bus_hold = "false";
+defparam \ALUResult[15]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N20
+fiftyfivenm_lcell_comb \WriteData~15 (
+// Equation(s):
+// \WriteData~15_combout  = (\MemtoReg~input_o  & (\MemData[15]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[15]~input_o )))
+
+	.dataa(gnd),
+	.datab(\MemData[15]~input_o ),
+	.datac(\ALUResult[15]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~15_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~15 .lut_mask = 16'hCCF0;
+defparam \WriteData~15 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y18_N15
+fiftyfivenm_io_ibuf \MemData[16]~input (
+	.i(MemData[16]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[16]~input_o ));
+// synopsys translate_off
+defparam \MemData[16]~input .bus_hold = "false";
+defparam \MemData[16]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[16]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y19_N22
+fiftyfivenm_io_ibuf \ALUResult[16]~input (
+	.i(ALUResult[16]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[16]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[16]~input .bus_hold = "false";
+defparam \ALUResult[16]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[16]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y19_N16
+fiftyfivenm_lcell_comb \WriteData~16 (
+// Equation(s):
+// \WriteData~16_combout  = (\MemtoReg~input_o  & (\MemData[16]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[16]~input_o )))
+
+	.dataa(\MemData[16]~input_o ),
+	.datab(gnd),
+	.datac(\MemtoReg~input_o ),
+	.datad(\ALUResult[16]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~16_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~16 .lut_mask = 16'hAFA0;
+defparam \WriteData~16 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y3_N22
+fiftyfivenm_io_ibuf \MemData[17]~input (
+	.i(MemData[17]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[17]~input_o ));
+// synopsys translate_off
+defparam \MemData[17]~input .bus_hold = "false";
+defparam \MemData[17]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[17]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X19_Y0_N15
+fiftyfivenm_io_ibuf \ALUResult[17]~input (
+	.i(ALUResult[17]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[17]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[17]~input .bus_hold = "false";
+defparam \ALUResult[17]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[17]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N16
+fiftyfivenm_lcell_comb \WriteData~17 (
+// Equation(s):
+// \WriteData~17_combout  = (\MemtoReg~input_o  & (\MemData[17]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[17]~input_o )))
+
+	.dataa(gnd),
+	.datab(\MemtoReg~input_o ),
+	.datac(\MemData[17]~input_o ),
+	.datad(\ALUResult[17]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~17_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~17 .lut_mask = 16'hF3C0;
+defparam \WriteData~17 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y16_N8
+fiftyfivenm_io_ibuf \MemData[18]~input (
+	.i(MemData[18]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[18]~input_o ));
+// synopsys translate_off
+defparam \MemData[18]~input .bus_hold = "false";
+defparam \MemData[18]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[18]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y25_N22
+fiftyfivenm_io_ibuf \ALUResult[18]~input (
+	.i(ALUResult[18]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[18]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[18]~input .bus_hold = "false";
+defparam \ALUResult[18]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[18]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N22
+fiftyfivenm_lcell_comb \WriteData~18 (
+// Equation(s):
+// \WriteData~18_combout  = (\MemtoReg~input_o  & (\MemData[18]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[18]~input_o )))
+
+	.dataa(gnd),
+	.datab(\MemtoReg~input_o ),
+	.datac(\MemData[18]~input_o ),
+	.datad(\ALUResult[18]~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~18_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~18 .lut_mask = 16'hF3C0;
+defparam \WriteData~18 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X6_Y10_N8
+fiftyfivenm_io_ibuf \MemData[19]~input (
+	.i(MemData[19]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[19]~input_o ));
+// synopsys translate_off
+defparam \MemData[19]~input .bus_hold = "false";
+defparam \MemData[19]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[19]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y17_N1
+fiftyfivenm_io_ibuf \ALUResult[19]~input (
+	.i(ALUResult[19]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[19]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[19]~input .bus_hold = "false";
+defparam \ALUResult[19]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[19]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N24
+fiftyfivenm_lcell_comb \WriteData~19 (
+// Equation(s):
+// \WriteData~19_combout  = (\MemtoReg~input_o  & (\MemData[19]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[19]~input_o )))
+
+	.dataa(\MemData[19]~input_o ),
+	.datab(gnd),
+	.datac(\ALUResult[19]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~19_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~19 .lut_mask = 16'hAAF0;
+defparam \WriteData~19 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y18_N1
+fiftyfivenm_io_ibuf \MemData[20]~input (
+	.i(MemData[20]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[20]~input_o ));
+// synopsys translate_off
+defparam \MemData[20]~input .bus_hold = "false";
+defparam \MemData[20]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[20]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y20_N1
+fiftyfivenm_io_ibuf \ALUResult[20]~input (
+	.i(ALUResult[20]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[20]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[20]~input .bus_hold = "false";
+defparam \ALUResult[20]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[20]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N2
+fiftyfivenm_lcell_comb \WriteData~20 (
+// Equation(s):
+// \WriteData~20_combout  = (\MemtoReg~input_o  & (\MemData[20]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[20]~input_o )))
+
+	.dataa(\MemData[20]~input_o ),
+	.datab(gnd),
+	.datac(\ALUResult[20]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~20_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~20 .lut_mask = 16'hAAF0;
+defparam \WriteData~20 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y14_N8
+fiftyfivenm_io_ibuf \ALUResult[21]~input (
+	.i(ALUResult[21]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[21]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[21]~input .bus_hold = "false";
+defparam \ALUResult[21]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[21]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X15_Y25_N8
+fiftyfivenm_io_ibuf \MemData[21]~input (
+	.i(MemData[21]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[21]~input_o ));
+// synopsys translate_off
+defparam \MemData[21]~input .bus_hold = "false";
+defparam \MemData[21]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[21]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N28
+fiftyfivenm_lcell_comb \WriteData~21 (
+// Equation(s):
+// \WriteData~21_combout  = (\MemtoReg~input_o  & ((\MemData[21]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[21]~input_o ))
+
+	.dataa(\ALUResult[21]~input_o ),
+	.datab(gnd),
+	.datac(\MemData[21]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~21_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~21 .lut_mask = 16'hF0AA;
+defparam \WriteData~21 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X15_Y0_N29
+fiftyfivenm_io_ibuf \ALUResult[22]~input (
+	.i(ALUResult[22]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[22]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[22]~input .bus_hold = "false";
+defparam \ALUResult[22]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[22]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y3_N15
+fiftyfivenm_io_ibuf \MemData[22]~input (
+	.i(MemData[22]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[22]~input_o ));
+// synopsys translate_off
+defparam \MemData[22]~input .bus_hold = "false";
+defparam \MemData[22]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[22]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N18
+fiftyfivenm_lcell_comb \WriteData~22 (
+// Equation(s):
+// \WriteData~22_combout  = (\MemtoReg~input_o  & ((\MemData[22]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[22]~input_o ))
+
+	.dataa(\ALUResult[22]~input_o ),
+	.datab(\MemtoReg~input_o ),
+	.datac(\MemData[22]~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\WriteData~22_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~22 .lut_mask = 16'hE2E2;
+defparam \WriteData~22 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X3_Y10_N29
+fiftyfivenm_io_ibuf \ALUResult[23]~input (
+	.i(ALUResult[23]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[23]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[23]~input .bus_hold = "false";
+defparam \ALUResult[23]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[23]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y13_N1
+fiftyfivenm_io_ibuf \MemData[23]~input (
+	.i(MemData[23]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[23]~input_o ));
+// synopsys translate_off
+defparam \MemData[23]~input .bus_hold = "false";
+defparam \MemData[23]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[23]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N30
+fiftyfivenm_lcell_comb \WriteData~23 (
+// Equation(s):
+// \WriteData~23_combout  = (\MemtoReg~input_o  & ((\MemData[23]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[23]~input_o ))
+
+	.dataa(\ALUResult[23]~input_o ),
+	.datab(gnd),
+	.datac(\MemData[23]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~23_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~23 .lut_mask = 16'hF0AA;
+defparam \WriteData~23 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y21_N8
+fiftyfivenm_io_ibuf \MemData[24]~input (
+	.i(MemData[24]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[24]~input_o ));
+// synopsys translate_off
+defparam \MemData[24]~input .bus_hold = "false";
+defparam \MemData[24]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[24]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X3_Y10_N8
+fiftyfivenm_io_ibuf \ALUResult[24]~input (
+	.i(ALUResult[24]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[24]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[24]~input .bus_hold = "false";
+defparam \ALUResult[24]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[24]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N0
+fiftyfivenm_lcell_comb \WriteData~24 (
+// Equation(s):
+// \WriteData~24_combout  = (\MemtoReg~input_o  & (\MemData[24]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[24]~input_o )))
+
+	.dataa(gnd),
+	.datab(\MemData[24]~input_o ),
+	.datac(\ALUResult[24]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~24_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~24 .lut_mask = 16'hCCF0;
+defparam \WriteData~24 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y14_N15
+fiftyfivenm_io_ibuf \MemData[25]~input (
+	.i(MemData[25]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[25]~input_o ));
+// synopsys translate_off
+defparam \MemData[25]~input .bus_hold = "false";
+defparam \MemData[25]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[25]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X3_Y10_N1
+fiftyfivenm_io_ibuf \ALUResult[25]~input (
+	.i(ALUResult[25]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[25]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[25]~input .bus_hold = "false";
+defparam \ALUResult[25]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[25]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N26
+fiftyfivenm_lcell_comb \WriteData~25 (
+// Equation(s):
+// \WriteData~25_combout  = (\MemtoReg~input_o  & (\MemData[25]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[25]~input_o )))
+
+	.dataa(\MemData[25]~input_o ),
+	.datab(\ALUResult[25]~input_o ),
+	.datac(gnd),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~25_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~25 .lut_mask = 16'hAACC;
+defparam \WriteData~25 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X6_Y10_N29
+fiftyfivenm_io_ibuf \ALUResult[26]~input (
+	.i(ALUResult[26]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[26]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[26]~input .bus_hold = "false";
+defparam \ALUResult[26]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[26]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y19_N8
+fiftyfivenm_io_ibuf \MemData[26]~input (
+	.i(MemData[26]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[26]~input_o ));
+// synopsys translate_off
+defparam \MemData[26]~input .bus_hold = "false";
+defparam \MemData[26]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[26]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N4
+fiftyfivenm_lcell_comb \WriteData~26 (
+// Equation(s):
+// \WriteData~26_combout  = (\MemtoReg~input_o  & ((\MemData[26]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[26]~input_o ))
+
+	.dataa(gnd),
+	.datab(\ALUResult[26]~input_o ),
+	.datac(\MemData[26]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~26_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~26 .lut_mask = 16'hF0CC;
+defparam \WriteData~26 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y25_N29
+fiftyfivenm_io_ibuf \ALUResult[27]~input (
+	.i(ALUResult[27]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[27]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[27]~input .bus_hold = "false";
+defparam \ALUResult[27]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[27]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y16_N1
+fiftyfivenm_io_ibuf \MemData[27]~input (
+	.i(MemData[27]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[27]~input_o ));
+// synopsys translate_off
+defparam \MemData[27]~input .bus_hold = "false";
+defparam \MemData[27]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[27]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N6
+fiftyfivenm_lcell_comb \WriteData~27 (
+// Equation(s):
+// \WriteData~27_combout  = (\MemtoReg~input_o  & ((\MemData[27]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[27]~input_o ))
+
+	.dataa(\ALUResult[27]~input_o ),
+	.datab(\MemData[27]~input_o ),
+	.datac(gnd),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~27_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~27 .lut_mask = 16'hCCAA;
+defparam \WriteData~27 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y15_N15
+fiftyfivenm_io_ibuf \MemData[28]~input (
+	.i(MemData[28]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[28]~input_o ));
+// synopsys translate_off
+defparam \MemData[28]~input .bus_hold = "false";
+defparam \MemData[28]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[28]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y0_N29
+fiftyfivenm_io_ibuf \ALUResult[28]~input (
+	.i(ALUResult[28]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[28]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[28]~input .bus_hold = "false";
+defparam \ALUResult[28]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[28]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N8
+fiftyfivenm_lcell_comb \WriteData~28 (
+// Equation(s):
+// \WriteData~28_combout  = (\MemtoReg~input_o  & (\MemData[28]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[28]~input_o )))
+
+	.dataa(gnd),
+	.datab(\MemData[28]~input_o ),
+	.datac(\ALUResult[28]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~28_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~28 .lut_mask = 16'hCCF0;
+defparam \WriteData~28 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y21_N22
+fiftyfivenm_io_ibuf \MemData[29]~input (
+	.i(MemData[29]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[29]~input_o ));
+// synopsys translate_off
+defparam \MemData[29]~input .bus_hold = "false";
+defparam \MemData[29]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[29]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y25_N15
+fiftyfivenm_io_ibuf \ALUResult[29]~input (
+	.i(ALUResult[29]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[29]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[29]~input .bus_hold = "false";
+defparam \ALUResult[29]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[29]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N10
+fiftyfivenm_lcell_comb \WriteData~29 (
+// Equation(s):
+// \WriteData~29_combout  = (\MemtoReg~input_o  & (\MemData[29]~input_o )) # (!\MemtoReg~input_o  & ((\ALUResult[29]~input_o )))
+
+	.dataa(\MemData[29]~input_o ),
+	.datab(gnd),
+	.datac(\ALUResult[29]~input_o ),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~29_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~29 .lut_mask = 16'hAAF0;
+defparam \WriteData~29 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y17_N8
+fiftyfivenm_io_ibuf \ALUResult[30]~input (
+	.i(ALUResult[30]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[30]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[30]~input .bus_hold = "false";
+defparam \ALUResult[30]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[30]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y15_N22
+fiftyfivenm_io_ibuf \MemData[30]~input (
+	.i(MemData[30]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[30]~input_o ));
+// synopsys translate_off
+defparam \MemData[30]~input .bus_hold = "false";
+defparam \MemData[30]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[30]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y14_N12
+fiftyfivenm_lcell_comb \WriteData~30 (
+// Equation(s):
+// \WriteData~30_combout  = (\MemtoReg~input_o  & ((\MemData[30]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[30]~input_o ))
+
+	.dataa(\ALUResult[30]~input_o ),
+	.datab(\MemData[30]~input_o ),
+	.datac(gnd),
+	.datad(\MemtoReg~input_o ),
+	.cin(gnd),
+	.combout(\WriteData~30_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~30 .lut_mask = 16'hCCAA;
+defparam \WriteData~30 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X22_Y0_N15
+fiftyfivenm_io_ibuf \ALUResult[31]~input (
+	.i(ALUResult[31]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\ALUResult[31]~input_o ));
+// synopsys translate_off
+defparam \ALUResult[31]~input .bus_hold = "false";
+defparam \ALUResult[31]~input .listen_to_nsleep_signal = "false";
+defparam \ALUResult[31]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X13_Y0_N29
+fiftyfivenm_io_ibuf \MemData[31]~input (
+	.i(MemData[31]),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\MemData[31]~input_o ));
+// synopsys translate_off
+defparam \MemData[31]~input .bus_hold = "false";
+defparam \MemData[31]~input .listen_to_nsleep_signal = "false";
+defparam \MemData[31]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y1_N28
+fiftyfivenm_lcell_comb \WriteData~31 (
+// Equation(s):
+// \WriteData~31_combout  = (\MemtoReg~input_o  & ((\MemData[31]~input_o ))) # (!\MemtoReg~input_o  & (\ALUResult[31]~input_o ))
+
+	.dataa(\ALUResult[31]~input_o ),
+	.datab(\MemData[31]~input_o ),
+	.datac(\MemtoReg~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\WriteData~31_combout ),
+	.cout());
+// synopsys translate_off
+defparam \WriteData~31 .lut_mask = 16'hCACA;
+defparam \WriteData~31 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: UNVM_X0_Y11_N40
+fiftyfivenm_unvm \~QUARTUS_CREATED_UNVM~ (
+	.arclk(vcc),
+	.arshft(vcc),
+	.drclk(vcc),
+	.drshft(vcc),
+	.drdin(vcc),
+	.nprogram(vcc),
+	.nerase(vcc),
+	.nosc_ena(\~QUARTUS_CREATED_GND~I_combout ),
+	.par_en(vcc),
+	.xe_ye(\~QUARTUS_CREATED_GND~I_combout ),
+	.se(\~QUARTUS_CREATED_GND~I_combout ),
+	.ardin(23'b11111111111111111111111),
+	.busy(\~QUARTUS_CREATED_UNVM~~busy ),
+	.osc(),
+	.bgpbusy(),
+	.sp_pass(),
+	.se_pass(),
+	.drdout());
+// synopsys translate_off
+defparam \~QUARTUS_CREATED_UNVM~ .addr_range1_end_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .addr_range1_offset = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .addr_range2_end_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .addr_range2_offset = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .addr_range3_offset = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .is_compressed_image = "false";
+defparam \~QUARTUS_CREATED_UNVM~ .is_dual_boot = "false";
+defparam \~QUARTUS_CREATED_UNVM~ .is_eram_skip = "false";
+defparam \~QUARTUS_CREATED_UNVM~ .max_ufm_valid_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .max_valid_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .min_ufm_valid_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .min_valid_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .part_name = "quartus_created_unvm";
+defparam \~QUARTUS_CREATED_UNVM~ .reserve_block = "true";
+// synopsys translate_on
+
+// Location: ADCBLOCK_X10_Y24_N0
+fiftyfivenm_adcblock \~QUARTUS_CREATED_ADC1~ (
+	.soc(\~QUARTUS_CREATED_GND~I_combout ),
+	.usr_pwd(vcc),
+	.tsen(\~QUARTUS_CREATED_GND~I_combout ),
+	.clkin_from_pll_c0(gnd),
+	.chsel({\~QUARTUS_CREATED_GND~I_combout ,\~QUARTUS_CREATED_GND~I_combout ,\~QUARTUS_CREATED_GND~I_combout ,\~QUARTUS_CREATED_GND~I_combout ,\~QUARTUS_CREATED_GND~I_combout }),
+	.eoc(\~QUARTUS_CREATED_ADC1~~eoc ),
+	.dout());
+// synopsys translate_off
+defparam \~QUARTUS_CREATED_ADC1~ .analog_input_pin_mask = 0;
+defparam \~QUARTUS_CREATED_ADC1~ .clkdiv = 1;
+defparam \~QUARTUS_CREATED_ADC1~ .device_partname_fivechar_prefix = "none";
+defparam \~QUARTUS_CREATED_ADC1~ .is_this_first_or_second_adc = 1;
+defparam \~QUARTUS_CREATED_ADC1~ .prescalar = 0;
+defparam \~QUARTUS_CREATED_ADC1~ .pwd = 1;
+defparam \~QUARTUS_CREATED_ADC1~ .refsel = 0;
+defparam \~QUARTUS_CREATED_ADC1~ .reserve_block = "true";
+defparam \~QUARTUS_CREATED_ADC1~ .testbits = 66;
+defparam \~QUARTUS_CREATED_ADC1~ .tsclkdiv = 1;
+defparam \~QUARTUS_CREATED_ADC1~ .tsclksel = 0;
+// synopsys translate_on
+
+assign WriteData[0] = \WriteData[0]~output_o ;
+
+assign WriteData[1] = \WriteData[1]~output_o ;
+
+assign WriteData[2] = \WriteData[2]~output_o ;
+
+assign WriteData[3] = \WriteData[3]~output_o ;
+
+assign WriteData[4] = \WriteData[4]~output_o ;
+
+assign WriteData[5] = \WriteData[5]~output_o ;
+
+assign WriteData[6] = \WriteData[6]~output_o ;
+
+assign WriteData[7] = \WriteData[7]~output_o ;
+
+assign WriteData[8] = \WriteData[8]~output_o ;
+
+assign WriteData[9] = \WriteData[9]~output_o ;
+
+assign WriteData[10] = \WriteData[10]~output_o ;
+
+assign WriteData[11] = \WriteData[11]~output_o ;
+
+assign WriteData[12] = \WriteData[12]~output_o ;
+
+assign WriteData[13] = \WriteData[13]~output_o ;
+
+assign WriteData[14] = \WriteData[14]~output_o ;
+
+assign WriteData[15] = \WriteData[15]~output_o ;
+
+assign WriteData[16] = \WriteData[16]~output_o ;
+
+assign WriteData[17] = \WriteData[17]~output_o ;
+
+assign WriteData[18] = \WriteData[18]~output_o ;
+
+assign WriteData[19] = \WriteData[19]~output_o ;
+
+assign WriteData[20] = \WriteData[20]~output_o ;
+
+assign WriteData[21] = \WriteData[21]~output_o ;
+
+assign WriteData[22] = \WriteData[22]~output_o ;
+
+assign WriteData[23] = \WriteData[23]~output_o ;
+
+assign WriteData[24] = \WriteData[24]~output_o ;
+
+assign WriteData[25] = \WriteData[25]~output_o ;
+
+assign WriteData[26] = \WriteData[26]~output_o ;
+
+assign WriteData[27] = \WriteData[27]~output_o ;
+
+assign WriteData[28] = \WriteData[28]~output_o ;
+
+assign WriteData[29] = \WriteData[29]~output_o ;
+
+assign WriteData[30] = \WriteData[30]~output_o ;
+
+assign WriteData[31] = \WriteData[31]~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_TMS~	=>  Location: PIN_H2,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_TCK~	=>  Location: PIN_G2,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_TDI~	=>  Location: PIN_L4,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_TDO~	=>  Location: PIN_M5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_CONFIG_SEL~	=>  Location: PIN_H10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCONFIG~	=>  Location: PIN_H9,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_nSTATUS~	=>  Location: PIN_G9,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_CONF_DONE~	=>  Location: PIN_F8,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_TMS~~padout ;
+wire \~ALTERA_TCK~~padout ;
+wire \~ALTERA_TDI~~padout ;
+wire \~ALTERA_CONFIG_SEL~~padout ;
+wire \~ALTERA_nCONFIG~~padout ;
+wire \~ALTERA_nSTATUS~~padout ;
+wire \~ALTERA_CONF_DONE~~padout ;
+wire \~ALTERA_TMS~~ibuf_o ;
+wire \~ALTERA_TCK~~ibuf_o ;
+wire \~ALTERA_TDI~~ibuf_o ;
+wire \~ALTERA_CONFIG_SEL~~ibuf_o ;
+wire \~ALTERA_nCONFIG~~ibuf_o ;
+wire \~ALTERA_nSTATUS~~ibuf_o ;
+wire \~ALTERA_CONF_DONE~~ibuf_o ;
+
+
+endmodule

@@ -1,0 +1,73 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "WriteRegister[0]",
+					"strict" : false
+				},
+				{
+					"name" : "WriteRegister[1]",
+					"strict" : false
+				},
+				{
+					"name" : "WriteRegister[2]",
+					"strict" : false
+				},
+				{
+					"name" : "WriteRegister[3]",
+					"strict" : false
+				},
+				{
+					"name" : "WriteRegister[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rd[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rt[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RegDst",
+					"strict" : false
+				},
+				{
+					"name" : "rd[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rt[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rd[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rt[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rd[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rt[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rd[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rt[4]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
