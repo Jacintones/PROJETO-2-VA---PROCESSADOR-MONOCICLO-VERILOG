@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main
-Thu Mar  6 00:28:12 2025
+Mon Mar 10 13:58:06 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -13,12 +13,18 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: dmem:teste
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
- 13. Analysis & Synthesis Suppressed Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: I_MEM:instr_mem
+ 13. Parameter Settings for User Entity Instance: ALU:alu
+ 14. Parameter Settings for User Entity Instance: dmem:data_mem
+ 15. Port Connectivity Checks: "control:ctrl"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,16 +51,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Mar  6 00:28:12 2025          ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 10 13:58:06 2025          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; main                                           ;
 ; Top-level Entity Name              ; main                                           ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 3,526                                          ;
-;     Total combinational functions  ; 1,446                                          ;
-;     Dedicated logic registers      ; 2,080                                          ;
-; Total registers                    ; 2080                                           ;
-; Total pins                         ; 180                                            ;
+; Total logic elements               ; 6,791                                          ;
+;     Total combinational functions  ; 3,815                                          ;
+;     Dedicated logic registers      ; 3,070                                          ;
+; Total registers                    ; 3070                                           ;
+; Total pins                         ; 34                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -158,31 +164,40 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 8           ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-12        ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                           ; Library ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
-; main.v                           ; yes             ; User Verilog HDL File  ; D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v    ;         ;
-; control.v                        ; yes             ; User Verilog HDL File  ; D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v ;         ;
-; dmem.v                           ; yes             ; User Verilog HDL File  ; D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v    ;         ;
-; PC.v                             ; yes             ; User Verilog HDL File  ; D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/PC.v      ;         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                               ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                           ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; main.v                           ; yes             ; User Verilog HDL File        ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v         ;         ;
+; control.v                        ; yes             ; User Verilog HDL File        ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v      ;         ;
+; dmem.v                           ; yes             ; User Verilog HDL File        ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v         ;         ;
+; PC.v                             ; yes             ; User Verilog HDL File        ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/PC.v           ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File        ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/ALU.v          ;         ;
+; i_mem.v                          ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v        ;         ;
+; inst.txt                         ; yes             ; Auto-Found File              ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/inst.txt       ;         ;
+; regfile.v                        ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/regfile.v      ;         ;
+; mux_regdst.v                     ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_regdst.v   ;         ;
+; mux_alusrc.v                     ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_alusrc.v   ;         ;
+; mux_memtoreg.v                   ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_memtoreg.v ;         ;
+; mux_branch.v                     ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_branch.v   ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -190,44 +205,109 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 3,526     ;
+; Estimated Total logic elements              ; 6,791     ;
 ;                                             ;           ;
-; Total combinational functions               ; 1446      ;
+; Total combinational functions               ; 3815      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1436      ;
-;     -- 3 input functions                    ; 10        ;
-;     -- <=2 input functions                  ; 0         ;
+;     -- 4 input functions                    ; 3393      ;
+;     -- 3 input functions                    ; 404       ;
+;     -- <=2 input functions                  ; 18        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1446      ;
-;     -- arithmetic mode                      ; 0         ;
+;     -- normal mode                          ; 3723      ;
+;     -- arithmetic mode                      ; 92        ;
 ;                                             ;           ;
-; Total registers                             ; 2080      ;
-;     -- Dedicated logic registers            ; 2080      ;
+; Total registers                             ; 3070      ;
+;     -- Dedicated logic registers            ; 3070      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 180       ;
+; I/O pins                                    ; 34        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 2080      ;
-; Total fan-out                               ; 12270     ;
-; Average fan-out                             ; 3.16      ;
+; Maximum fan-out                             ; 3070      ;
+; Total fan-out                               ; 25060     ;
+; Average fan-out                             ; 3.60      ;
 +---------------------------------------------+-----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |main                      ; 1446 (0)            ; 2080 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 180  ; 0            ; 0          ; |main               ; main        ; work         ;
-;    |PC:pc|                 ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|PC:pc         ; PC          ; work         ;
-;    |control:ctrl|          ; 22 (22)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|control:ctrl  ; control     ; work         ;
-;    |dmem:teste|            ; 1424 (1424)         ; 2048 (2048)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|dmem:teste    ; dmem        ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                               ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------+--------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name            ; Entity Name  ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------+--------------+--------------+
+; |main                         ; 3815 (86)           ; 3070 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |main                          ; main         ; work         ;
+;    |ALU:alu|                  ; 673 (673)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|ALU:alu                  ; ALU          ; work         ;
+;    |I_MEM:instr_mem|          ; 140 (140)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|I_MEM:instr_mem          ; I_MEM        ; work         ;
+;    |PC:pc|                    ; 0 (0)               ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|PC:pc                    ; PC           ; work         ;
+;    |REGFILE:regfile|          ; 1393 (1393)         ; 992 (992)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|REGFILE:regfile          ; REGFILE      ; work         ;
+;    |control:ctrl|             ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|control:ctrl             ; control      ; work         ;
+;    |dmem:data_mem|            ; 1424 (1424)         ; 2048 (2048)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|dmem:data_mem            ; dmem         ; work         ;
+;    |mux_alusrc:muxALUSrc|     ; 43 (43)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|mux_alusrc:muxALUSrc     ; mux_alusrc   ; work         ;
+;    |mux_memtoreg:muxMemToReg| ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|mux_memtoreg:muxMemToReg ; mux_memtoreg ; work         ;
+;    |mux_regdst:muxRegDst|     ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|mux_regdst:muxRegDst     ; mux_regdst   ; work         ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                   ;
++----------------------------------------+---------------------------------------------+
+; Register name                          ; Reason for Removal                          ;
++----------------------------------------+---------------------------------------------+
+; PC:pc|PC[0,1]                          ; Stuck at GND due to stuck port data_in      ;
+; REGFILE:regfile|registers[0][0]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][1]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][2]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][3]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][4]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][5]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][6]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][7]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][8]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][9]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][10]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][11]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][12]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][13]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][14]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][15]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][16]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][17]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][18]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][19]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][20]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][21]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][22]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][23]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][24]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][25]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][26]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][27]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][28]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][29]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][30]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][31]       ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 34 ;                                             ;
++----------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                             ;
++----------------------------------+--------------------------------+---------------------------------------------------------------------+
+; Register name                    ; Reason for Removal             ; Registers Removed due to This Register                              ;
++----------------------------------+--------------------------------+---------------------------------------------------------------------+
+; REGFILE:regfile|registers[0][15] ; Stuck at GND                   ; REGFILE:regfile|registers[0][16], REGFILE:regfile|registers[0][24], ;
+;                                  ; due to stuck port clock_enable ; REGFILE:regfile|registers[0][25], REGFILE:regfile|registers[0][26], ;
+;                                  ;                                ; REGFILE:regfile|registers[0][27], REGFILE:regfile|registers[0][28], ;
+;                                  ;                                ; REGFILE:regfile|registers[0][29], REGFILE:regfile|registers[0][30], ;
+;                                  ;                                ; REGFILE:regfile|registers[0][31]                                    ;
+; REGFILE:regfile|registers[0][2]  ; Stuck at GND                   ; REGFILE:regfile|registers[0][17]                                    ;
+;                                  ; due to stuck port clock_enable ;                                                                     ;
+; REGFILE:regfile|registers[0][3]  ; Stuck at GND                   ; REGFILE:regfile|registers[0][18]                                    ;
+;                                  ; due to stuck port clock_enable ;                                                                     ;
++----------------------------------+--------------------------------+---------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -235,24 +315,81 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2080  ;
+; Total registers                              ; 3070  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 992   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2048  ;
+; Number of registers using Clock Enable       ; 3044  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: dmem:teste ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; MEM_SIZE       ; 64    ; Signed Integer                 ;
-+----------------+-------+--------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |main|REGFILE:regfile|Mux50 ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |main|REGFILE:regfile|Mux28 ;
+; 22:1               ; 7 bits    ; 98 LEs        ; 63 LEs               ; 35 LEs                 ; No         ; |main|ALU:alu|Mux14         ;
+; 21:1               ; 7 bits    ; 98 LEs        ; 63 LEs               ; 35 LEs                 ; No         ; |main|ALU:alu|Mux23         ;
+; 23:1               ; 4 bits    ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |main|ALU:alu|Mux7          ;
+; 22:1               ; 4 bits    ; 56 LEs        ; 40 LEs               ; 16 LEs                 ; No         ; |main|ALU:alu|Mux27         ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |main|ALU:alu|Mux3          ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; No         ; |main|ALU:alu|Mux29         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I_MEM:instr_mem ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; MEM_SIZE       ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:alu ;
++----------------+-------+-----------------------------+
+; Parameter Name ; Value ; Type                        ;
++----------------+-------+-----------------------------+
+; ADD            ; 0001  ; Unsigned Binary             ;
+; SUB            ; 0010  ; Unsigned Binary             ;
+; SHL_U          ; 0011  ; Unsigned Binary             ;
+; SHR_U          ; 0100  ; Unsigned Binary             ;
+; SHL_S          ; 0101  ; Unsigned Binary             ;
+; SHR_S          ; 0110  ; Unsigned Binary             ;
+; LT             ; 0111  ; Unsigned Binary             ;
+; EQ             ; 1000  ; Unsigned Binary             ;
+; NEQ            ; 1001  ; Unsigned Binary             ;
+; AND            ; 1010  ; Unsigned Binary             ;
+; OR             ; 1011  ; Unsigned Binary             ;
+; XOR            ; 1100  ; Unsigned Binary             ;
+; NOR            ; 1101  ; Unsigned Binary             ;
++----------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dmem:data_mem ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; MEM_SIZE       ; 64    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:ctrl"                                                                                             ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                  ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; PCSrc ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -260,20 +397,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 180                         ;
-; cycloneiii_ff         ; 2080                        ;
-;     ENA               ; 2048                        ;
-;     plain             ; 32                          ;
-; cycloneiii_io_obuf    ; 32                          ;
-; cycloneiii_lcell_comb ; 1452                        ;
-;     normal            ; 1452                        ;
+; boundary_port         ; 34                          ;
+; cycloneiii_ff         ; 3070                        ;
+;     ENA               ; 2052                        ;
+;     ENA CLR           ; 992                         ;
+;     plain             ; 26                          ;
+; cycloneiii_lcell_comb ; 3816                        ;
+;     arith             ; 92                          ;
+;         3 data inputs ; 92                          ;
+;     normal            ; 3724                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 5                           ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 1436                        ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 312                         ;
+;         4 data inputs ; 3393                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 4.53                        ;
+; Max LUT depth         ; 29.50                       ;
+; Average LUT depth     ; 19.77                       ;
 +-----------------------+-----------------------------+
 
 
@@ -282,7 +421,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:13     ;
 +----------------+--------------+
 
 
@@ -292,74 +431,110 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Mar  6 00:28:05 2025
+    Info: Processing started: Mon Mar 10 13:57:46 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Monociclo -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
-    Info (12023): Found entity 1: main File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 1
+    Info (12023): Found entity 1: main File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file control.v
-    Info (12023): Found entity 1: control File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 30
+    Info (12023): Found entity 1: control File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 30
 Info (12021): Found 1 design units, including 1 entities, in source file dmem.v
-    Info (12023): Found entity 1: dmem File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 1
+    Info (12023): Found entity 1: dmem File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file pc.v
-    Info (12023): Found entity 1: PC File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/PC.v Line: 1
+    Info (12023): Found entity 1: PC File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/PC.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: ALU File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/ALU.v Line: 1
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Info (12128): Elaborating entity "control" for hierarchy "control:ctrl" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 15
-Warning (10235): Verilog HDL Always Construct warning at control.v(38): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 38
-Warning (10240): Verilog HDL Always Construct warning at control.v(37): inferring latch(es) for variable "PCSrc", which holds its previous value in one or more paths through the always construct File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 37
-Info (10041): Inferred latch for "PCSrc" at control.v(37) File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 37
-Info (12128): Elaborating entity "dmem" for hierarchy "dmem:teste" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 17
-Info (12128): Elaborating entity "PC" for hierarchy "PC:pc" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 19
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "dmem:teste|memory" is uninferred due to asynchronous read logic File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 11
+Info (12128): Elaborating entity "PC" for hierarchy "PC:pc" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 26
+Warning (12125): Using design file i_mem.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: I_MEM File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 1
+Info (12128): Elaborating entity "I_MEM" for hierarchy "I_MEM:instr_mem" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 32
+Warning (10850): Verilog HDL warning at i_mem.v(12): number of words (64) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 12
+Warning (10030): Net "memory.data_a" at i_mem.v(7) has no driver or initial value, using a default initial value '0' File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 7
+Warning (10030): Net "memory.waddr_a" at i_mem.v(7) has no driver or initial value, using a default initial value '0' File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 7
+Warning (10030): Net "memory.we_a" at i_mem.v(7) has no driver or initial value, using a default initial value '0' File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 7
+Info (12128): Elaborating entity "control" for hierarchy "control:ctrl" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 47
+Warning (10235): Verilog HDL Always Construct warning at control.v(38): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 38
+Warning (10240): Verilog HDL Always Construct warning at control.v(37): inferring latch(es) for variable "PCSrc", which holds its previous value in one or more paths through the always construct File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 37
+Info (10041): Inferred latch for "PCSrc" at control.v(37) File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 37
+Warning (12125): Using design file regfile.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: REGFILE File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/regfile.v Line: 1
+Info (12128): Elaborating entity "REGFILE" for hierarchy "REGFILE:regfile" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 60
+Warning (12125): Using design file mux_regdst.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: mux_regdst File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_regdst.v Line: 1
+Info (12128): Elaborating entity "mux_regdst" for hierarchy "mux_regdst:muxRegDst" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 68
+Warning (12125): Using design file mux_alusrc.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: mux_alusrc File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_alusrc.v Line: 1
+Info (12128): Elaborating entity "mux_alusrc" for hierarchy "mux_alusrc:muxALUSrc" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 79
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 88
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:data_mem" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 98
+Warning (12125): Using design file mux_memtoreg.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: mux_memtoreg File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_memtoreg.v Line: 1
+Info (12128): Elaborating entity "mux_memtoreg" for hierarchy "mux_memtoreg:muxMemToReg" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 106
+Warning (12125): Using design file mux_branch.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: mux_branch File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_branch.v Line: 1
+Info (12128): Elaborating entity "mux_branch" for hierarchy "mux_branch:muxBranch" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 120
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[0]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[1]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[2]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[3]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[4]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[5]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[6]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[7]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[8]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[9]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[10]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[11]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[12]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[13]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[14]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[15]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[16]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[17]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[18]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[19]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[20]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[21]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[22]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[23]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[24]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[25]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[26]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[27]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[28]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[29]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[30]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+    Warning (13049): Converted tri-state buffer "dmem:data_mem|ReadData[31]" feeding internal logic into a wire File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/db/main.ram0_I_MEM_5216bc9.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276013): RAM logic "I_MEM:instr_mem|memory" is uninferred because MIF is not supported for the selected family File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 7
+    Info (276007): RAM logic "dmem:data_mem|memory" is uninferred due to asynchronous read logic File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 11
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/db/main.ram0_I_MEM_5216bc9.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "PCSrc" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "PC[0]" is stuck at GND File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "PC[1]" is stuck at GND File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
 Info (286030): Timing-Driven Synthesis is running
-Info (144001): Generated suppressed messages file D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/output_files/main.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/output_files/main.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 26 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "address[0]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[1]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[8]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[9]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[10]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[11]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[12]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[13]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[14]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[15]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[16]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[17]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[18]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[19]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[20]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[21]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[22]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[23]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[24]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[25]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[26]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[27]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[28]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[29]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[30]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-    Warning (15610): No output dependent on input pin "address[31]" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 8
-Info (21057): Implemented 3706 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 103 input pins
-    Info (21059): Implemented 77 output pins
-    Info (21061): Implemented 3526 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 4792 megabytes
-    Info: Processing ended: Thu Mar  6 00:28:12 2025
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:05
+Info (21057): Implemented 6889 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 6855 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 4883 megabytes
+    Info: Processing ended: Mon Mar 10 13:58:06 2025
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:28
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/output_files/main.map.smsg.
+The suppressed messages can be found in C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/output_files/main.map.smsg.
 
 
