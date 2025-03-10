@@ -1,2 +1,2 @@
-Info (10281): Verilog HDL Declaration information at main.v(5): object "PC" differs only in case from object "pc" in the same scope File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
-Warning (10273): Verilog HDL warning at dmem.v(24): extended using "x" or "z" File: C:/Users/thiag/Documents/Projeto 2 - Arquitetura/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 24
+Info (10281): Verilog HDL Declaration information at main.v(5): object "PC" differs only in case from object "pc" in the same scope File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+Warning (10273): Verilog HDL warning at dmem.v(24): extended using "x" or "z" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 24

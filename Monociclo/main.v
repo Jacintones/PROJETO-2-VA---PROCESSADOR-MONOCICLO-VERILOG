@@ -118,6 +118,16 @@ module main (
         .branchTaken(branchTaken),
         .mux_out(pc_branch)
     );
+	 
+	 mux_jump muxJump(
+			.clk(clk), 
+			.branchAddr(branchAddr), 
+			.pc4(PC + 4), 
+			.ReadData1(ReadData1), 
+			.select(), 
+			.pcInstruction(pcInstruction)
+	 );
+		
 
     // MUX para decidir o próximo PC (com suporte a Jump)
     always @(*) begin

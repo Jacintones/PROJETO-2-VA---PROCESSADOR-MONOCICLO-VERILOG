@@ -50,7 +50,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//addi
-			6'd1: begin
+			6'd8: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -63,7 +63,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//andi
-			6'd2: begin
+			6'd12: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -76,7 +76,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//ori
-			6'd3: begin
+			6'd13: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -89,7 +89,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//xori
-			6'd4: begin
+			6'd14: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -102,7 +102,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//beq
-			6'd5: begin
+			6'd4: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 1;
@@ -115,7 +115,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//bne
-			6'd6: begin
+			6'd5: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 1;
@@ -128,7 +128,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//slti
-			6'd7: begin
+			6'd10: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -141,7 +141,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//sltiu
-			6'd8: begin
+			6'd11: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -154,7 +154,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//lui
-			6'd9: begin
+			6'd15: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -167,7 +167,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//lw
-			6'd10: begin
+			6'd35: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -180,7 +180,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//sw
-			6'd11: begin
+			6'd43: begin
 				RegDst = 0;
 				Jump = 0;
 				Branch = 0;
@@ -193,7 +193,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//j
-			6'd12: begin
+			6'd2: begin
 				RegDst = 0;
 				Jump = 1;
 				Branch = 0;
@@ -206,7 +206,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				PCSrc = 0;
 			end
 			//jal
-			6'd13: begin
+			6'd3: begin
 				RegDst = 0;
 				Jump = 1;
 				Branch = 0;
@@ -217,7 +217,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				ALUSrc = 0;
 				RegWrite = 1;
 			end
-			//jal
+			//jr
 			6'd14: begin
 				RegDst = 0;
 				Jump = 1;

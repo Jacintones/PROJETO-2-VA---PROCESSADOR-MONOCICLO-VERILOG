@@ -1,0 +1,7 @@
+module mux_jump(clk, branchAddr, pc4, ReadData1, select, pcInstruction);
+
+	input wire clk;
+	input wire [31:0] branchAddr, pc4, ReadData1;
+	output reg [31:0] pcInstruction
+	
+endmodule
