@@ -9,7 +9,7 @@ module I_MEM (address, i_out);
     // Inicialização da memória durante a simulação
     initial begin
         // Lê o arquivo contendo as instruções (instruções em formato hexadecimal)
-        $readmemb("inst.txt", memory);
+        $readmemb("instructions.bin", memory);
     end
 
     // Sempre que o endereço mudar, a instrução correspondente será lida

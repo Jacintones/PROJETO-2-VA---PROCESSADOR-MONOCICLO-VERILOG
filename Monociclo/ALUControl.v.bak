@@ -1,0 +1,41 @@
+module ALUControl (Aluop, funct, ALUControl);
+
+    input wire [3:0] ALUOp,       // Código de operação da unidade de controle
+    input wire [5:0] funct,       // Campo funct para operações tipo R
+    output reg [3:0] ALUControl // Código para a ALU
+
+
+always @(*) begin
+    case(ALUOp)
+        4'b0001: ALUControl = 4'b0010; // ADDI (soma imediato)
+        4'b0010: ALUControl = 4'b0000; // ANDI (AND imediato)
+        4'b0011: ALUControl = 4'b0001; // ORI (OR imediato)
+        4'b0100: ALUControl = 4'b0011; // XORI (XOR imediato)
+        4'b0101: ALUControl = 4'b0110; // BEQ (subtrai e verifica zero)
+        4'b0110: ALUControl = 4'b0110; // BNE (subtrai e verifica não-zero)
+        4'b0111: ALUControl = 4'b0111; // SLTI (setar menor que imediato)
+        4'b1000: ALUControl = 4'b0111; // SLTIU (setar menor que imediato sem sinal)
+        4'b1001: ALUControl = 4'b0000; // LUI (carrega imediato alto, não faz operação ALU)
+        4'b1010: ALUControl = 4'b0010; // LW (usa ADD para calcular endereço)
+        4'b1011: ALUControl = 4'b0010; // SW (usa ADD para calcular endereço)
+        4'b1100: ALUControl = 4'b0000; // JUMP (não usa ALU)
+        4'b1101: ALUControl = 4'b0000; // JAL (não usa ALU)
+
+        4'b1111: begin // Tipo R (instruções que usam funct)
+            case(funct)
+                6'd100000: ALUControl = 4'b0010; // ADD
+                6'd100010: ALUControl = 4'b0110; // SUB
+                6'd100100: ALUControl = 4'b0000; // AND
+                6'd100101: ALUControl = 4'b0001; // OR
+                6'd100110: ALUControl = 4'b0011; // XOR
+                6'd100111: ALUControl = 4'b1100; // NOR
+                6'd101010: ALUControl = 4'b0111; // SLT
+                6'd101011: ALUControl = 4'b0111; // SLTU
+                default:   ALUControl = 4'bxxxx; // Operação inválida
+            endcase
+        end
+        default: ALUControl = 4'bxxxx; // Caso ALUOp não reconhecido
+    endcase
+end
+
+endmodule

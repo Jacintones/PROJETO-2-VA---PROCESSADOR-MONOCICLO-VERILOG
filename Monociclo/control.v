@@ -4,24 +4,24 @@
 #               DOCUMENTACAO CONTROLE                 # 
 #######################################################
 # Instruções do Tipo-R (OpCode):  							#		
-#  -> Todas: 000000  										   #
+#  -> Todas: 0  										   		#
 #																		#
 # Instruções do Tipo-I (Opcode):								#
-# 	-> addi:  000001												#
-# 	-> andi:  000010												#
-# 	-> ori:   000011												#
-# 	-> xori   000100												#
-# 	-> beq:   000101												#
-# 	-> bne:   000110												#
-# 	-> slti:  000111												#
-# 	-> sltiu: 001000												#
-# 	-> lui:   001001												#
-# 	-> lw:	 001010												#
-# 	-> sw:	 001011												#
+# 	-> addi:  8														#
+# 	-> andi:  12													#
+# 	-> ori:   13													#
+# 	-> xori   14													#
+# 	-> beq:   4														#
+# 	-> bne:   5														#
+# 	-> slti:  10													#
+# 	-> sltiu: 11													#
+# 	-> lui:   15													#
+# 	-> lw:	 35													#
+# 	-> sw:	 43													#
 #																		#
 # Instruções do Tipo-J (Opcode): 							#
-# 	-> j:     001100												#
-#  -> jaL:   001101												#
+# 	-> j:     2														#
+#  -> jaL:   3														#
 # 																		#
 #######################################################
 */
@@ -31,7 +31,8 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 	//Descrição das Entradas e Sinais:
 	input wire [5:0] opcode; //6 bits com o opcode da instrucao
 	input wire clk;
-	output reg RegDst, Jump, Branch, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite, PCSrc;
+	output reg RegDst, Branch, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite, PCSrc;
+	output reg [1:0] Jump;
 	output reg [3:0] ALUOp;
 	
 	always @ (clk) begin
@@ -39,7 +40,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			// Instrucoes do Tipo-R
 			6'd0: begin
 				RegDst = 1;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -52,7 +53,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//addi
 			6'd8: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -65,7 +66,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//andi
 			6'd12: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -78,7 +79,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//ori
 			6'd13: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -91,7 +92,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//xori
 			6'd14: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -104,7 +105,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//beq
 			6'd4: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 1;
 				MemRead = 0;
 				MemToReg = 0;
@@ -117,7 +118,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//bne
 			6'd5: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 1;
 				MemRead = 0;
 				MemToReg = 0;
@@ -130,7 +131,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//slti
 			6'd10: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -143,7 +144,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//sltiu
 			6'd11: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -156,7 +157,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//lui
 			6'd15: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 1;
@@ -169,7 +170,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//lw
 			6'd35: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 1;
 				MemToReg = 1;
@@ -182,7 +183,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//sw
 			6'd43: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -195,7 +196,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//j
 			6'd2: begin
 				RegDst = 0;
-				Jump = 1;
+				Jump = 2'd1;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -208,7 +209,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 			//jal
 			6'd3: begin
 				RegDst = 0;
-				Jump = 1;
+				Jump = 2'd1;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;
@@ -217,22 +218,10 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 				ALUSrc = 0;
 				RegWrite = 1;
 			end
-			//jr
-			6'd14: begin
-				RegDst = 0;
-				Jump = 1;
-				Branch = 0;
-				MemRead = 0;
-				MemToReg = 0;
-				ALUOp = 4'd14;
-				MemWrite = 0;
-				ALUSrc = 0;
-				RegWrite = 1;
-			end
 			//Caso padrão
 			default: begin
 				RegDst = 0;
-				Jump = 0;
+				Jump = 2'd0;
 				Branch = 0;
 				MemRead = 0;
 				MemToReg = 0;

@@ -1,5 +1,5 @@
 module ALU (
-    input [3:0] ALUOp,  // Código da operação (4 bits)
+    input [3:0] ALUSelector,  // Código da operação (4 bits)
     input [31:0] A,         // Operando A (32 bits)
     input [31:0] B,         // Operando B (32 bits)
     output reg [31:0] result,  // Resultado da operação (32 bits)
@@ -22,7 +22,7 @@ module ALU (
 
     // Lógica da ULA
     always @(*) begin
-        case(ALUOp)
+        case(ALUSelector)
             ADD:    result = A + B;  // Soma
             SUB:    result = A - B;  // Subtração
             SHL_U:  result = A << B; // Shift Left Unsigned

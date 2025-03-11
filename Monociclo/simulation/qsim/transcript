@@ -1,0 +1,61 @@
+# do Monociclo.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 00:32:53 on Mar 11,2025
+# vlog -work work main.vo 
+# -- Compiling module main
+# -- Compiling module hard_block
+# 
+# Top level modules:
+# 	main
+# End time: 00:32:53 on Mar 11,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 00:32:53 on Mar 11,2025
+# vlog -work work Waveform2.vwf.vt 
+# -- Compiling module main_vlg_vec_tst
+# 
+# Top level modules:
+# 	main_vlg_vec_tst
+# End time: 00:32:53 on Mar 11,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -suppress 12110 -voptargs=""+acc"" -c -t 1ps -L fiftyfivenm_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.main_vlg_vec_tst 
+# Start time: 00:32:53 on Mar 11,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Warning: main.vo(149537): (vopt-2685) [TFMPC] - Too few port connections for '\~QUARTUS_CREATED_ADC1~ '.  Expected 8, found 7.
+# ** Warning: main.vo(149537): (vopt-2718) [TFMPC] - Missing connection for port 'clk_dft'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 win64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading work.main_vlg_vec_tst(fast)
+# Loading work.main(fast)
+# Loading work.hard_block(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_io_obuf(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_io_ibuf(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_clkctrl(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_mux41(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_ena_reg(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb(fast)
+# Loading altera_ver.dffeas(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb(fast__1)
+# Loading fiftyfivenm_ver.fiftyfivenm_unvm(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_adcblock(fast)
+# after#27
+# ** Note: $finish    : Waveform2.vwf.vt(51)
+#    Time: 1 us  Iteration: 0  Instance: /main_vlg_vec_tst
+# End time: 00:32:57 on Mar 11,2025, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 3
