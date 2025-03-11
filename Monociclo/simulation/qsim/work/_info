@@ -19,6 +19,18 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s11f vlog 2023.3 2023.07, Jul 17 2023
 13
 !s112 1.1
@@ -28,10 +40,10 @@ R1
 cModel Technology
 Z2 dD:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/simulation/qsim
 T_opt
-!s110 1741663975
-VondZfok:X3m;_h]b2^4@40
+!s110 1741715869
+VMX?b@ac0XzB3iZd`9E1Co1
 04 16 4 work main_vlg_vec_tst fast 0
-=1-c87f54d1d1c4-67cfaee6-37-23c8
+=1-c87f54d1d1c4-67d0799c-315-45ac
 R1
 !s12b OEM100
 !s124 OEM10U3 
@@ -41,22 +53,22 @@ n@_opt
 OL;O;2023.3;77
 vhard_block
 Z4 2main.vo
-Z5 !s110 1741663973
+Z5 !s110 1741715868
 !i10b 1
-!s100 hUDDcbGTXk[Z2EkAf0]=Y1
-IGO<;AA;FNOob^eII]JEz32
+!s100 [73?O_Z@63Z[=?6KlfT^<1
+IeVNVDNMhezNa4AZ9]C1d:0
 R2
-Z6 w1741663972
+Z6 w1741715867
 Z7 8main.vo
 Z8 Fmain.vo
-!i122 24
-L0 149753 45
+!i122 42
+L0 56728 45
 Z9 VDg1SIo80bB@j0V0VzS_@n1
 Z10 OL;L;2023.3;77
 r1
 !s85 0
 31
-Z11 !s108 1741663973.000000
+Z11 !s108 1741715868.000000
 Z12 !s107 main.vo|
 Z13 !s90 -work|work|main.vo|
 !i113 0
@@ -66,14 +78,14 @@ vmain
 R4
 R5
 !i10b 1
-!s100 RIceS1;ncdY=gPm1bN@An0
-INH9ehLh>8z6ZoNllODnka0
+!s100 gV=G^k=Ce;>UW>i:5]C063
+I]j6g`2BJ^BnQz0=Ea6Vze3
 R2
 R6
 R7
 R8
-!i122 24
-L0 32 149720
+!i122 42
+L0 32 56695
 R9
 R10
 r1
@@ -92,10 +104,10 @@ R5
 !s100 o50@zOF0cLnXUM3>7Z2>R3
 I;eg:^HEDMD[o@D31F>mN80
 R2
-w1741663971
+w1741715866
 8Waveform2.vwf.vt
 FWaveform2.vwf.vt
-!i122 25
+!i122 43
 L0 30 38
 R9
 R10

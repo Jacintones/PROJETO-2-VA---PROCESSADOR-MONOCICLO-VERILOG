@@ -26,7 +26,7 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Tue Mar 11 00:32:50 2025
+    Info: Processing started: Tue Mar 11 14:57:46 2025
 Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Monociclo -c main --vector_source="D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/Waveform2.vwf" --testbench_file="D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/simulation/qsim/Waveform2.vwf.vt"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
@@ -35,9 +35,9 @@ Warning (18236): Number of processors has not been specified which may cause ove
 " in vector source file when writing test bench files
 
  warnings
-    Info: Peak virtual memory: 4659 megabytes
-    Info: Processing ended: Tue Mar 11 00:32:51 2025
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4645 megabytes
+    Info: Processing ended: Tue Mar 11 14:57:46 2025
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 
 Completed successfully. 
@@ -65,13 +65,13 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Tue Mar 11 00:32:51 2025
+    Info: Processing started: Tue Mar 11 14:57:46 2025
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/simulation/qsim/" Monociclo -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file main.vo in folder "D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4663 megabytes
-    Info: Processing ended: Tue Mar 11 00:32:52 2025
+    Info: Peak virtual memory: 4657 megabytes
+    Info: Processing ended: Tue Mar 11 14:57:47 2025
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 
@@ -100,7 +100,7 @@ Reading pref.tcl
 
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 
-# Start time: 00:32:53 on Mar 11,2025
+# Start time: 14:57:48 on Mar 11,2025
 # vlog -work work main.vo 
 
 # -- Compiling module main
@@ -108,16 +108,15 @@ Reading pref.tcl
 # -- Compiling module hard_block
 
 # 
-
 # Top level modules:
 # 	main
 
-# End time: 00:32:53 on Mar 11,2025, Elapsed time: 0:00:00
+# End time: 14:57:48 on Mar 11,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 
-# Start time: 00:32:53 on Mar 11,2025
+# Start time: 14:57:48 on Mar 11,2025
 # vlog -work work Waveform2.vwf.vt 
 
 # -- Compiling module main_vlg_vec_tst
@@ -127,15 +126,16 @@ Reading pref.tcl
 # Top level modules:
 # 	main_vlg_vec_tst
 
-# End time: 00:32:53 on Mar 11,2025, Elapsed time: 0:00:00
+# End time: 14:57:48 on Mar 11,2025, Elapsed time: 0:00:00
+
 # Errors: 0, Warnings: 0
 
 # vsim -suppress 12110 -voptargs=""+acc"" -c -t 1ps -L fiftyfivenm_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.main_vlg_vec_tst 
-# Start time: 00:32:53 on Mar 11,2025
+# Start time: 14:57:48 on Mar 11,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Warning: main.vo(149537): (vopt-2685) [TFMPC] - Too few port connections for '\~QUARTUS_CREATED_ADC1~ '.  Expected 8, found 7.
-# ** Warning: main.vo(149537): (vopt-2718) [TFMPC] - Missing connection for port 'clk_dft'.
+# ** Warning: main.vo(56512): (vopt-2685) [TFMPC] - Too few port connections for '\~QUARTUS_CREATED_ADC1~ '.  Expected 8, found 7.
+# ** Warning: main.vo(56512): (vopt-2718) [TFMPC] - Missing connection for port 'clk_dft'.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
 # //  Questa Intel Starter FPGA Edition-64
 # //  Version 2023.3 win64 Jul 17 2023
@@ -155,12 +155,12 @@ Reading pref.tcl
 # Loading work.main_vlg_vec_tst(fast)
 # Loading work.main(fast)
 # Loading work.hard_block(fast)
+# Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb(fast)
 # Loading fiftyfivenm_ver.fiftyfivenm_io_obuf(fast)
 # Loading fiftyfivenm_ver.fiftyfivenm_io_ibuf(fast)
 # Loading fiftyfivenm_ver.fiftyfivenm_clkctrl(fast)
 # Loading fiftyfivenm_ver.fiftyfivenm_mux41(fast)
 # Loading fiftyfivenm_ver.fiftyfivenm_ena_reg(fast)
-# Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb(fast)
 # Loading altera_ver.dffeas(fast)
 # Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb(fast__1)
 # Loading fiftyfivenm_ver.fiftyfivenm_unvm(fast)
@@ -171,7 +171,7 @@ Reading pref.tcl
 # ** Note: $finish    : Waveform2.vwf.vt(51)
 #    Time: 1 us  Iteration: 0  Instance: /main_vlg_vec_tst
 
-# End time: 00:32:57 on Mar 11,2025, Elapsed time: 0:00:04
+# End time: 14:57:50 on Mar 11,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 3
 
 Completed successfully. 
@@ -184,7 +184,7 @@ Reading D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PRO
 
 Processing channel transitions... 
 
-Writing the resulting VWF to D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/simulation/qsim/Monociclo_20250311003257.sim.vwf
+Writing the resulting VWF to D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/simulation/qsim/Monociclo_20250311145750.sim.vwf
 
 Finished VCD to VWF conversion.
 

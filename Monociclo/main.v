@@ -7,7 +7,7 @@ module main (
 );
 
 	// Sinais de controle da unidade de controle
-	wire RegDst, Branch, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite;
+	wire RegDst, Branch, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite, PCregs;
 	wire [3:0] ALUOp;
 	wire [1:0] Jump;
 	 
@@ -42,7 +42,8 @@ module main (
 	ALUControl aluctrl (
 		.ALUOp(ALUOp),
 		.funct(instruction[5:0]),
-		.ALUControl(ALUControl)
+		.ALUControl(ALUControl),
+		.PCregs(PCregs)
 	);
 
 	// Unidade de Controle
@@ -138,7 +139,8 @@ module main (
 		.branchAddr(branchAddr), 
 		.pc4(PC + 4), 
 		.ReadData1(ReadData1), 
-		.select(Jump), 
+		.select(Jump),
+		.PCregs(PCregs),
 		.pcInstruction(pcInstruction)
 	);
 
@@ -147,7 +149,7 @@ module main (
 	if (Jump == 2'b00)
 		nextPC = instruction;
 	else
-	  nextPC = pcInstruction;
+		nextPC = pcInstruction;
 	end
 
 endmodule

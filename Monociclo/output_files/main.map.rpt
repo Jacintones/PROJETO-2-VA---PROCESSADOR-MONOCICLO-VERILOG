@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main
-Tue Mar 11 13:27:33 2025
+Tue Mar 11 14:56:24 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -21,11 +21,12 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  13. Parameter Settings for User Entity Instance: ALU:alu
  14. Parameter Settings for User Entity Instance: dmem:data_mem
  15. Port Connectivity Checks: "mux_branch:muxBranch"
- 16. Port Connectivity Checks: "control:ctrl"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
- 20. Analysis & Synthesis Suppressed Messages
+ 16. Port Connectivity Checks: "ALU:alu"
+ 17. Port Connectivity Checks: "control:ctrl"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -52,15 +53,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Mar 11 13:27:33 2025          ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar 11 14:56:24 2025          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; main                                           ;
 ; Top-level Entity Name              ; main                                           ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 6,829                                          ;
-;     Total combinational functions  ; 3,821                                          ;
-;     Dedicated logic registers      ; 3,104                                          ;
-; Total registers                    ; 3104                                           ;
+; Total logic elements               ; 2,692                                          ;
+;     Total combinational functions  ; 1,700                                          ;
+;     Dedicated logic registers      ; 1,130                                          ;
+; Total registers                    ; 1130                                           ;
 ; Total pins                         ; 98                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -177,7 +178,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 6            ;   0.1%      ;
 ;     Processor 7            ;   0.1%      ;
 ;     Processor 8            ;   0.1%      ;
-;     Processors 9-12        ;   0.1%      ;
+;     Processors 9-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -208,20 +209,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 6,829     ;
+; Estimated Total logic elements              ; 2,692     ;
 ;                                             ;           ;
-; Total combinational functions               ; 3821      ;
+; Total combinational functions               ; 1700      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 3216      ;
-;     -- 3 input functions                    ; 478       ;
-;     -- <=2 input functions                  ; 127       ;
+;     -- 4 input functions                    ; 1491      ;
+;     -- 3 input functions                    ; 170       ;
+;     -- <=2 input functions                  ; 39        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 3699      ;
-;     -- arithmetic mode                      ; 122       ;
+;     -- normal mode                          ; 1671      ;
+;     -- arithmetic mode                      ; 29        ;
 ;                                             ;           ;
-; Total registers                             ; 3104      ;
-;     -- Dedicated logic registers            ; 3104      ;
+; Total registers                             ; 1130      ;
+;     -- Dedicated logic registers            ; 1130      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 98        ;
@@ -229,9 +230,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 3104      ;
-; Total fan-out                               ; 25076     ;
-; Average fan-out                             ; 3.52      ;
+; Maximum fan-out                             ; 1130      ;
+; Total fan-out                               ; 11086     ;
+; Average fan-out                             ; 3.66      ;
 +---------------------------------------------+-----------+
 
 
@@ -240,16 +241,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------+--------------+--------------+
 ; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name            ; Entity Name  ; Library Name ;
 +-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------+--------------+--------------+
-; |main                         ; 3821 (33)           ; 3104 (32)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 98   ; 0            ; 0          ; |main                          ; main         ; work         ;
-;    |ALU:alu|                  ; 689 (689)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|ALU:alu                  ; ALU          ; work         ;
-;    |ALUControl:aluctrl|       ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|ALUControl:aluctrl       ; ALUControl   ; work         ;
-;    |I_MEM:instr_mem|          ; 154 (154)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|I_MEM:instr_mem          ; I_MEM        ; work         ;
+; |main                         ; 1700 (92)           ; 1130 (32)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 98   ; 0            ; 0          ; |main                          ; main         ; work         ;
+;    |ALUControl:aluctrl|       ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|ALUControl:aluctrl       ; ALUControl   ; work         ;
+;    |I_MEM:instr_mem|          ; 156 (156)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|I_MEM:instr_mem          ; I_MEM        ; work         ;
 ;    |PC:pc|                    ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|PC:pc                    ; PC           ; work         ;
-;    |REGFILE:regfile|          ; 1403 (1403)         ; 992 (992)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|REGFILE:regfile          ; REGFILE      ; work         ;
-;    |control:ctrl|             ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|control:ctrl             ; control      ; work         ;
-;    |dmem:data_mem|            ; 1428 (1428)         ; 2048 (2048)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|dmem:data_mem            ; dmem         ; work         ;
-;    |mux_alusrc:muxALUSrc|     ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|mux_alusrc:muxALUSrc     ; mux_alusrc   ; work         ;
-;    |mux_memtoreg:muxMemToReg| ; 34 (34)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|mux_memtoreg:muxMemToReg ; mux_memtoreg ; work         ;
+;    |REGFILE:regfile|          ; 712 (712)           ; 992 (992)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|REGFILE:regfile          ; REGFILE      ; work         ;
+;    |control:ctrl|             ; 21 (21)             ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|control:ctrl             ; control      ; work         ;
+;    |dmem:data_mem|            ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|dmem:data_mem            ; dmem         ; work         ;
+;    |mux_jump:muxJump|         ; 678 (678)           ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|mux_jump:muxJump         ; mux_jump     ; work         ;
+;    |mux_memtoreg:muxMemToReg| ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|mux_memtoreg:muxMemToReg ; mux_memtoreg ; work         ;
 ;    |mux_regdst:muxRegDst|     ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|mux_regdst:muxRegDst     ; mux_regdst   ; work         ;
 +-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -260,56 +260,102 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------------------------------------------+
 ; Register name                          ; Reason for Removal                          ;
 +----------------------------------------+---------------------------------------------+
-; REGFILE:regfile|registers[0][31]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][30]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][29]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][28]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][27]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][26]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][25]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][24]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][23]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][22]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][21]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][20]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][19]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][18]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][17]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][16]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][15]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][14]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][13]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][12]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][11]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][10]       ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][9]        ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][8]        ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][7]        ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][6]        ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][5]        ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][4]        ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][3]        ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][2]        ; Stuck at GND due to stuck port clock_enable ;
-; REGFILE:regfile|registers[0][1]        ; Stuck at GND due to stuck port clock_enable ;
+; ALU:alu|result[0..31]                  ; Stuck at GND due to stuck port clock        ;
+; control:ctrl|ALUSrc                    ; Lost fanout                                 ;
+; control:ctrl|Jump[1]                   ; Stuck at GND due to stuck port data_in      ;
 ; REGFILE:regfile|registers[0][0]        ; Stuck at GND due to stuck port clock_enable ;
-; Total Number of Removed Registers = 32 ;                                             ;
+; REGFILE:regfile|registers[0][1]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][2]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][3]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][4]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][5]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][6]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][7]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][8]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][9]        ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][10]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][11]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][12]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][13]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][14]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][15]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][16]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][17]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][18]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][19]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][20]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][21]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][22]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][23]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][24]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][25]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][26]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][27]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][28]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][29]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][30]       ; Stuck at GND due to stuck port clock_enable ;
+; REGFILE:regfile|registers[0][31]       ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 66 ;                                             ;
 +----------------------------------------+---------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                             ;
-+----------------------------------+--------------------------------+---------------------------------------------------------------------+
-; Register name                    ; Reason for Removal             ; Registers Removed due to This Register                              ;
-+----------------------------------+--------------------------------+---------------------------------------------------------------------+
-; REGFILE:regfile|registers[0][31] ; Stuck at GND                   ; REGFILE:regfile|registers[0][30], REGFILE:regfile|registers[0][29], ;
-;                                  ; due to stuck port clock_enable ; REGFILE:regfile|registers[0][28], REGFILE:regfile|registers[0][27], ;
-;                                  ;                                ; REGFILE:regfile|registers[0][26], REGFILE:regfile|registers[0][25], ;
-;                                  ;                                ; REGFILE:regfile|registers[0][24], REGFILE:regfile|registers[0][16], ;
-;                                  ;                                ; REGFILE:regfile|registers[0][15], REGFILE:regfile|registers[0][7],  ;
-;                                  ;                                ; REGFILE:regfile|registers[0][6], REGFILE:regfile|registers[0][5],   ;
-;                                  ;                                ; REGFILE:regfile|registers[0][4], REGFILE:regfile|registers[0][1],   ;
-;                                  ;                                ; REGFILE:regfile|registers[0][0]                                     ;
-+----------------------------------+--------------------------------+---------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                      ;
++--------------------+-------------------------+-------------------------------------------------------------------+
+; Register name      ; Reason for Removal      ; Registers Removed due to This Register                            ;
++--------------------+-------------------------+-------------------------------------------------------------------+
+; ALU:alu|result[7]  ; Stuck at GND            ; REGFILE:regfile|registers[0][0], REGFILE:regfile|registers[0][1], ;
+;                    ; due to stuck port clock ; REGFILE:regfile|registers[0][2], REGFILE:regfile|registers[0][3], ;
+;                    ;                         ; REGFILE:regfile|registers[0][4], REGFILE:regfile|registers[0][5]  ;
+; ALU:alu|result[31] ; Stuck at GND            ; REGFILE:regfile|registers[0][31]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[30] ; Stuck at GND            ; REGFILE:regfile|registers[0][30]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[29] ; Stuck at GND            ; REGFILE:regfile|registers[0][29]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[28] ; Stuck at GND            ; REGFILE:regfile|registers[0][28]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[27] ; Stuck at GND            ; REGFILE:regfile|registers[0][27]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[26] ; Stuck at GND            ; REGFILE:regfile|registers[0][26]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[25] ; Stuck at GND            ; REGFILE:regfile|registers[0][25]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[24] ; Stuck at GND            ; REGFILE:regfile|registers[0][24]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[23] ; Stuck at GND            ; REGFILE:regfile|registers[0][23]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[22] ; Stuck at GND            ; REGFILE:regfile|registers[0][22]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[21] ; Stuck at GND            ; REGFILE:regfile|registers[0][21]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[20] ; Stuck at GND            ; REGFILE:regfile|registers[0][20]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[19] ; Stuck at GND            ; REGFILE:regfile|registers[0][19]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[18] ; Stuck at GND            ; REGFILE:regfile|registers[0][18]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[17] ; Stuck at GND            ; REGFILE:regfile|registers[0][17]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[16] ; Stuck at GND            ; REGFILE:regfile|registers[0][16]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[15] ; Stuck at GND            ; REGFILE:regfile|registers[0][15]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[14] ; Stuck at GND            ; REGFILE:regfile|registers[0][14]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[13] ; Stuck at GND            ; REGFILE:regfile|registers[0][13]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[12] ; Stuck at GND            ; REGFILE:regfile|registers[0][12]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[11] ; Stuck at GND            ; REGFILE:regfile|registers[0][11]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[10] ; Stuck at GND            ; REGFILE:regfile|registers[0][10]                                  ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[9]  ; Stuck at GND            ; REGFILE:regfile|registers[0][9]                                   ;
+;                    ; due to stuck port clock ;                                                                   ;
+; ALU:alu|result[8]  ; Stuck at GND            ; REGFILE:regfile|registers[0][8]                                   ;
+;                    ; due to stuck port clock ;                                                                   ;
++--------------------+-------------------------+-------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -317,31 +363,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 3104  ;
+; Total registers                              ; 1130  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 30    ;
+; Number of registers using Synchronous Load   ; 32    ;
 ; Number of registers using Asynchronous Clear ; 992   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 3040  ;
+; Number of registers using Clock Enable       ; 1024  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; 14:1               ; 4 bits    ; 36 LEs        ; 32 LEs               ; 4 LEs                  ; No         ; |main|ALUControl:aluctrl|Mux0 ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |main|REGFILE:regfile|Mux47   ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |main|REGFILE:regfile|Mux29   ;
-; 21:1               ; 7 bits    ; 98 LEs        ; 70 LEs               ; 28 LEs                 ; No         ; |main|ALU:alu|Mux23           ;
-; 22:1               ; 7 bits    ; 98 LEs        ; 70 LEs               ; 28 LEs                 ; No         ; |main|ALU:alu|Mux14           ;
-; 22:1               ; 4 bits    ; 56 LEs        ; 40 LEs               ; 16 LEs                 ; No         ; |main|ALU:alu|Mux27           ;
-; 23:1               ; 4 bits    ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |main|ALU:alu|Mux5            ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 22 LEs               ; 8 LEs                  ; No         ; |main|ALU:alu|Mux28           ;
-; 24:1               ; 2 bits    ; 32 LEs        ; 22 LEs               ; 10 LEs                 ; No         ; |main|ALU:alu|Mux3            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |main|mux_jump:muxJump|pcInstruction[0] ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |main|REGFILE:regfile|Mux32             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 
 
 +--------------------------------------------------------------+
@@ -395,6 +434,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:alu"                                                                                                                                    ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; clk  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "control:ctrl"                                                                                             ;
 +-------+--------+----------+----------------------------------------------------------------------------------------------------------+
@@ -410,23 +458,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 98                          ;
-; cycloneiii_ff         ; 3104                        ;
-;     ENA               ; 2048                        ;
+; cycloneiii_ff         ; 1130                        ;
+;     ENA               ; 32                          ;
 ;     ENA CLR           ; 992                         ;
-;     SLD               ; 30                          ;
-;     plain             ; 34                          ;
+;     SLD               ; 32                          ;
+;     plain             ; 74                          ;
 ; cycloneiii_io_obuf    ; 32                          ;
-; cycloneiii_lcell_comb ; 3821                        ;
-;     arith             ; 122                         ;
-;         3 data inputs ; 122                         ;
-;     normal            ; 3699                        ;
+; cycloneiii_lcell_comb ; 1701                        ;
+;     arith             ; 29                          ;
+;         3 data inputs ; 29                          ;
+;     normal            ; 1672                        ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 126                         ;
-;         3 data inputs ; 356                         ;
-;         4 data inputs ; 3216                        ;
+;         2 data inputs ; 39                          ;
+;         3 data inputs ; 141                         ;
+;         4 data inputs ; 1491                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 27.00                       ;
-; Average LUT depth     ; 17.60                       ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 6.26                        ;
 +-----------------------+-----------------------------+
 
 
@@ -435,7 +483,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -445,7 +493,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Tue Mar 11 13:27:16 2025
+    Info: Processing started: Tue Mar 11 14:56:16 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Monociclo -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -464,7 +512,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file mux_jum
 Info (12021): Found 1 design units, including 1 entities, in source file alucontrol.v
     Info (12023): Found entity 1: ALUControl File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/ALUControl.v Line: 1
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at main.v(124): object "jumpAddr" assigned a value but never read File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 124
+Warning (10036): Verilog HDL or VHDL warning at main.v(125): object "jumpAddr" assigned a value but never read File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 125
 Info (12128): Elaborating entity "PC" for hierarchy "PC:pc" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 34
 Warning (12125): Using design file i_mem.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: I_MEM File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 1
@@ -473,39 +521,34 @@ Warning (10850): Verilog HDL warning at i_mem.v(12): number of words (64) in mem
 Warning (10030): Net "memory.data_a" at i_mem.v(7) has no driver or initial value, using a default initial value '0' File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 7
 Warning (10030): Net "memory.waddr_a" at i_mem.v(7) has no driver or initial value, using a default initial value '0' File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 7
 Warning (10030): Net "memory.we_a" at i_mem.v(7) has no driver or initial value, using a default initial value '0' File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 7
-Info (12128): Elaborating entity "ALUControl" for hierarchy "ALUControl:aluctrl" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 46
-Info (12128): Elaborating entity "control" for hierarchy "control:ctrl" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 61
-Warning (10235): Verilog HDL Always Construct warning at control.v(39): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 39
-Warning (10240): Verilog HDL Always Construct warning at control.v(38): inferring latch(es) for variable "PCSrc", which holds its previous value in one or more paths through the always construct File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 38
-Info (10041): Inferred latch for "PCSrc" at control.v(38) File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/control.v Line: 38
+Info (12128): Elaborating entity "ALUControl" for hierarchy "ALUControl:aluctrl" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 47
+Warning (10272): Verilog HDL Case Statement warning at ALUControl.v(38): case item expression covers a value already covered by a previous case item File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/ALUControl.v Line: 38
+Info (12128): Elaborating entity "control" for hierarchy "control:ctrl" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 62
 Warning (12125): Using design file regfile.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: REGFILE File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/regfile.v Line: 1
-Info (12128): Elaborating entity "REGFILE" for hierarchy "REGFILE:regfile" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 74
+Info (12128): Elaborating entity "REGFILE" for hierarchy "REGFILE:regfile" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 75
 Warning (12125): Using design file mux_regdst.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: mux_regdst File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_regdst.v Line: 1
-Info (12128): Elaborating entity "mux_regdst" for hierarchy "mux_regdst:muxRegDst" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 82
+Info (12128): Elaborating entity "mux_regdst" for hierarchy "mux_regdst:muxRegDst" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 83
 Warning (12125): Using design file mux_alusrc.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: mux_alusrc File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_alusrc.v Line: 1
-Info (12128): Elaborating entity "mux_alusrc" for hierarchy "mux_alusrc:muxALUSrc" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 93
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 102
-Info (12128): Elaborating entity "dmem" for hierarchy "dmem:data_mem" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 112
+Info (12128): Elaborating entity "mux_alusrc" for hierarchy "mux_alusrc:muxALUSrc" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 94
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 103
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:data_mem" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 113
 Warning (12125): Using design file mux_memtoreg.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: mux_memtoreg File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_memtoreg.v Line: 1
-Info (12128): Elaborating entity "mux_memtoreg" for hierarchy "mux_memtoreg:muxMemToReg" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 120
+Info (12128): Elaborating entity "mux_memtoreg" for hierarchy "mux_memtoreg:muxMemToReg" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 121
 Warning (12125): Using design file mux_branch.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: mux_branch File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_branch.v Line: 1
-Info (12128): Elaborating entity "mux_branch" for hierarchy "mux_branch:muxBranch" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 134
-Info (12128): Elaborating entity "mux_jump" for hierarchy "mux_jump:muxJump" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 143
-Warning (10235): Verilog HDL Always Construct warning at mux_jump.v(9): variable "select" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_jump.v Line: 9
-Warning (10235): Verilog HDL Always Construct warning at mux_jump.v(10): variable "branchAddr" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_jump.v Line: 10
-Warning (10235): Verilog HDL Always Construct warning at mux_jump.v(11): variable "pc4" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_jump.v Line: 11
-Warning (10235): Verilog HDL Always Construct warning at mux_jump.v(12): variable "ReadData1" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_jump.v Line: 12
+Info (12128): Elaborating entity "mux_branch" for hierarchy "mux_branch:muxBranch" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 135
+Info (12128): Elaborating entity "mux_jump" for hierarchy "mux_jump:muxJump" File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 145
+Info (10264): Verilog HDL Case Statement information at mux_jump.v(13): all case item expressions in this case statement are onehot File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/mux_jump.v Line: 13
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/db/main.ram0_I_MEM_5216bc9.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276004): RAM logic "dmem:data_mem|memory" is uninferred due to inappropriate RAM size File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 11
     Info (276013): RAM logic "I_MEM:instr_mem|memory" is uninferred because MIF is not supported for the selected family File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/i_mem.v Line: 7
-    Info (276007): RAM logic "dmem:data_mem|memory" is uninferred due to asynchronous read logic File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 11
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/db/main.ram0_I_MEM_5216bc9.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13047): Converted the fan-out from the tri-state buffer "dmem:data_mem|ReadData[0]" to the node "mux_memtoreg:muxMemToReg|WriteData[0]" into an OR gate File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
     Warning (13047): Converted the fan-out from the tri-state buffer "dmem:data_mem|ReadData[1]" to the node "mux_memtoreg:muxMemToReg|WriteData[1]" into an OR gate File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
@@ -539,19 +582,53 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13047): Converted the fan-out from the tri-state buffer "dmem:data_mem|ReadData[29]" to the node "mux_memtoreg:muxMemToReg|WriteData[29]" into an OR gate File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
     Warning (13047): Converted the fan-out from the tri-state buffer "dmem:data_mem|ReadData[30]" to the node "mux_memtoreg:muxMemToReg|WriteData[30]" into an OR gate File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
     Warning (13047): Converted the fan-out from the tri-state buffer "dmem:data_mem|ReadData[31]" to the node "mux_memtoreg:muxMemToReg|WriteData[31]" into an OR gate File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/dmem.v Line: 8
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ALUResult[0]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[1]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[2]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[3]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[4]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[5]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[6]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[7]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[8]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[9]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[10]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[11]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[12]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[13]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[14]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[15]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[16]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[17]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[18]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[19]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[20]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[21]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[22]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[23]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[24]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[25]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[26]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[27]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[28]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[29]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[30]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
+    Warning (13410): Pin "ALUResult[31]" is stuck at GND File: D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/main.v Line: 5
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/Faculdade/Quarto Periodo/Arquitetura/Git-Monociclo/PROJETO-2-VA---PROCESSADOR-MONOCICLO-VERILOG/Monociclo/output_files/main.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 6991 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2822 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 96 output pins
-    Info (21061): Implemented 6893 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
-    Info: Peak virtual memory: 4855 megabytes
-    Info: Processing ended: Tue Mar 11 13:27:33 2025
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:12
+    Info (21061): Implemented 2724 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 82 warnings
+    Info: Peak virtual memory: 4847 megabytes
+    Info: Processing ended: Tue Mar 11 14:56:24 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +------------------------------------------+

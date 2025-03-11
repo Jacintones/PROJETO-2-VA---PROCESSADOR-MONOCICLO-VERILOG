@@ -35,7 +35,7 @@ module control (clk, opcode, RegDst, Jump, Branch, MemRead, MemToReg, ALUOp, Mem
 	output reg [1:0] Jump;
 	output reg [3:0] ALUOp;
 	
-	always @ (clk) begin
+	always @ (posedge clk) begin
 		case(opcode)
 			// Instrucoes do Tipo-R
 			6'd0: begin
